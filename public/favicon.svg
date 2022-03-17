@@ -1,0 +1,6 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+text { fill: #000; } @media (prefers-color-scheme: dark) { text { fill: #fff; } }
+</style>
+<text x="45" y="168" style="font: normal 161px sans-serif">Ӿ</text>
+</svg>

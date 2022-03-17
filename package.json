@@ -1,0 +1,68 @@
+{
+  "private": true,
+  "name": "clearness",
+  "description": "Learn to code Smart Contracts on Bitcoin thanks to Stacks and the Clarity Language. Learn Web3, DAO, NFT etc",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -i ./app/app.css -o ./app/tailwind.css --minify",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev \"",
+    "dev:css": "tailwindcss -i ./app/app.css -o ./app/tailwind.css --watch",
+    "postinstall": "remix setup node",
+    "test": "playwright test ./tests",
+    "generate-og": "playwright test ./tools/opengraph/generate-og-images.test.ts"
+  },
+  "dependencies": {
+    "@remix-run/react": "^1.1.3",
+    "@remix-run/serve": "^1.1.3",
+    "@remix-run/vercel": "^1.1.3",
+    "accept-language-parser": "^1.5.0",
+    "marked": "^4.0.12",
+    "prism-themes": "^1.9.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rehype-highlight": "^5.0.2",
+    "remark-emoji": "^3.0.2",
+    "remark-gfm": "^3.0.1",
+    "remix": "^1.1.3",
+    "tiny-invariant": "^1.2.0",
+    "uninstall": "^0.0.0"
+  },
+  "devDependencies": {
+    "@mapbox/rehype-prism": "github:hugocaillard/rehype-prism",
+    "@playwright/test": "^1.20.0",
+    "@remix-run/dev": "^1.1.3",
+    "@tailwindcss/typography": "^0.5.0",
+    "@types/accept-language-parser": "^1.5.3",
+    "@types/marked": "^4.0.2",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "front-matter": "^4.0.2",
+    "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-external-links": "^1.0.1",
+    "rehype-slug": "^5.0.1",
+    "tailwindcss": "^3.0.15",
+    "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": "v14.x",
+    "npm": "v8.x"
+  },
+  "sideEffects": false,
+  "volta": {
+    "node": "14.19.0",
+    "npm": "8.3.1"
+  }
+}

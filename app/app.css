@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#switch-theme + label:before {
+  content: '🌘';
+}
+#switch-theme:checked + label:before {
+  content: '🌞';
+}
+
+/* a hover animation */
+@media (hover: hover) {
+  a:not([aria-hidden='true']) {
+    --transition-duration: 0.15s;
+    position: relative;
+    transition: color var(--transition-duration) ease-in-out;
+    text-decoration: none;
+  }
+  a:not([aria-hidden='true']):before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    transition: width var(--transition-duration) ease-in-out;
+  }
+  a:not([aria-hidden='true']):hover::before {
+    width: 100%;
+  }
+}
+
+/* anchor links in markdown aricles */
+article div.prose a[aria-hidden='true'] {
+  position: relative;
+  line-height: inherit;
+  width: 30px;
+  height: 30px;
+}
+
+article div.prose a[aria-hidden='true']:before {
+  content: '🔗';
+  display: none;
+  height: 40px;
+  width: 44px;
+  padding-left: 10px;
+  left: -36px;
+  font-size: 1.2rem;
+  line-height: inherit;
+  position: absolute;
+  background: none;
+}
+article div.prose h1:hover > a[aria-hidden='true']:before,
+article div.prose h2:hover > a[aria-hidden='true']:before,
+article div.prose h3:hover > a[aria-hidden='true']:before,
+article div.prose h4:hover > a[aria-hidden='true']:before,
+article div.prose h5:hover > a[aria-hidden='true']:before,
+article div.prose h6:hover > a[aria-hidden='true']:before {
+  display: block;
+}
+
+/* article images */
+article div.prose img {
+  margin: auto;
+  max-height: 500px;
+  max-width: 100%;
+}

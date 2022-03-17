@@ -1,0 +1,25 @@
+## Useful links
+
+Here is a list of useful links to learn Clarity. Bookmark 'Em all!
+
+### Documentation and tutorials
+
+- [Stacks official Docs](https://docs.stacks.co/)
+  - [Write Smart Contracts](https://docs.stacks.co/write-smart-contracts/overview)
+  - [Clarity Language Overview](https://docs.stacks.co/references/language-overview)
+  - [Clarity Functions References](https://docs.stacks.co/references/language-functions) Super useful to check how a function works
+  - [Clarity Types](https://docs.stacks.co/references/language-types) Clarity only has a few types but sometimes it good to check what they are
+- [Clarity Book](https://book.clarity-lang.org/) An awesome website written by Marvin Janssen with contributions of lnow
+
+- [Stacks Blockchain API Reference](https://hirosystems.github.io/stacks-blockchain-api/)
+
+
+### (Developer) Tools
+
+- [Stacks Explorer by Hiro](https://explorer.stacks.co) See all transactions on the Stacks blockchain in realtime. Available for Mainnet and Testnet
+  - [Sandbox](https://explorer.stacks.co/sandbox/deploy) Deploy or call contracts. Send STX.
+  - [Testnet Faucet](https://explorer.stacks.co/sandbox/faucet?chain=testnet) If you select the Tesnet while browsing the Sandbox, you be able to get yourself some fake STX to play around
+- [ClarityTools](https://clarity.tools/) A suite a in-browser tools to code Clarity, learn, deploy etc. Seems to work better in chromium browsers (Chromium, Chrome, Edge, Brave...)
+
+
+> This is a living article that will be regularly udpated.
