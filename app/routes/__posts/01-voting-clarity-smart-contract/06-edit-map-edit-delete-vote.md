@@ -1,6 +1,6 @@
 ## Update or cancel a vote
 
-Since our election isn't currently limited in time, we'll give the opportunity to voters to change their mind. Let's add two more features to our Smart Contract: the ability to remove their vote and the ability to edit it.
+Since our election isn't limited in time, we'll give the opportunity to voters to change their mind about their vote. Let's add two more features to our Smart Contract: the ability to **remove** their vote and the ability to **edit** it.
 
 ### Store the vote of participants
 
@@ -35,7 +35,7 @@ To retrieve the vote of the sender, we'll use `map-get?`. To remove its vote fro
 )
 ```
 
-Regarding the tests, here is at least what we should check:
+On the tests, here is at least what we should check:
 
 - after calling `vote` a sender can call `unvote`
 - `unvote` returns an error if the sender didn't vote before
@@ -160,7 +160,7 @@ At this stage, a person can call `unvote` and `vote` again to change its vote.
 
 > :question: Is a `revote` function needed instead of calling `unvote + vote`.
 
-It's can be costly to call a public-function. To keep the fees low, we could make a single function that would combine `unvote` and `vote`. The following function would get the job done:
+It's can be costly to call public-functions. To keep efficient gas fees, a single function that combines `unvote` and `vote` will be more efficient. The following function would get the job done:
 
 ```clarity
 (define-public (unvoteAndVote (orange uint) (beige uint) (sky uint) (lime uint))
@@ -173,7 +173,7 @@ It's can be costly to call a public-function. To keep the fees low, we could mak
 
 > :point_right: Since `unvote` can fail, we must wrap it in `try!` so that if it fails, the function will stop and the forbidden errors will be thrown.
 
-Thanks to this function, we saved our users some gas fees. But the function is still `unnecessarily` costly. The main reason is that it performs **6 write operations**:
+Thanks to this function, we saved our users some gas fees. But the function is still unnecessarily costly. The main reason is that it performs **6 write operations**:
 1. remove the previous vote from `scores`,
 1. set `nb-of-voters` (-1),
 1. delete the sender vote from `votes`,
@@ -181,7 +181,7 @@ Thanks to this function, we saved our users some gas fees. But the function is s
 1. set `nb-of-voters` (+1),
 1. insert the sender in `votes`.
 
-Nonetheless, it's costly but it's also useless (`nb-of-voters` is written twice but its value is unchanged in the end). Clarinet has a tool to compute costs. Launch `clarinet console` and run the following commands: 
+Nonetheless, it's costly but it's also useless. `nb-of-voters` is written twice but its value is unchanged in the end. Clarinet has a tool to compute costs. Launch `clarinet console` and run the following commands: 
 
 ```clarity
 ::toggle_costs ;; display the costs of each call
@@ -198,7 +198,7 @@ Nonetheless, it's costly but it's also useless (`nb-of-voters` is written twice 
 | **Write count**      | **6**    | 7750       |
 | Write length (bytes) | 544      | 15000000   |
 
-If it can be significantly optimized, we'll do it since execution costs are important when running on a blockchain. Let's write a better `revote` function that will do almost the same thing but without calling the existing function.
+If it can be significantly optimized, we'll do it. Execution costs are important when running on a blockchain. Let's write a better `revote` function that will do almost the same thing but without calling the existing functions.
 
 <details>
 <summary>Solution: Clarity Code</summary>
