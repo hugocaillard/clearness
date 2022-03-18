@@ -1,6 +1,6 @@
 ---
 headers:
-  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+  Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 title: The Voting Web Application
 description: Create a web application to interact with our Voting contract
 posts:

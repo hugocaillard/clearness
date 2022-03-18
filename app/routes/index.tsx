@@ -17,9 +17,8 @@ import { getMeta, getCanonical, isOg } from '~/data/meta'
 
 export const headers: HeadersFunction = () => {
   return {
-    // 3min browser cache (3 * 60)
     // 30days CDN cache (30 * 24 * 60 * 60)
-    'Cache-Control': 'public, immutable, max-age=180, s-maxage=2592000',
+    'Cache-Control': 'public, max-age=0, must-revalidate, s-maxage=2592000',
   }
 }
 

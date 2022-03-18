@@ -1,6 +1,6 @@
 ---
 headers:
-  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+  Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 ---
 
 ## Write your first Clarity Smart Contract
