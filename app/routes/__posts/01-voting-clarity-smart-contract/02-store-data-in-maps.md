@@ -136,5 +136,5 @@ You just learned the basics of the map data structures. We've seen `define-map`,
 We've also seen how validate input data `asserts!`, we'll dot that a lot in the future. Error handling will be very important.  
 In the next article we'll implement the actual vote mechanism with a new data structure (lists) and our first private function.
 
-> 💻 Read the code on GitHub. The code related to this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-2).  
+> 💻 **Read the code on GitHub**. The code of this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-2).  
 > There is a [PR associated with this article](https://github.com/hugocaillard/clarity-voting-tuto/pull/2).

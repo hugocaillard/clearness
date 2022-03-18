@@ -230,5 +230,5 @@ In the next article we'll add a few read-only functions that will allow the user
 
 You may already feel that `map` and `fold` will be useful again :slightly_smiling_face:
 
-> 💻 Read the code on GitHub. The code related to this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-4).  
+> 💻 **Read the code on GitHub**. The code of this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-4).  
 > There is a [PR associated with this article](https://github.com/hugocaillard/clarity-voting-tuto/pull/4).

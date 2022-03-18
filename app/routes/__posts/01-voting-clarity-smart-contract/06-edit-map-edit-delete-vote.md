@@ -163,7 +163,7 @@ At this stage, a person can call `unvote` and `vote` again to change its vote.
 It's can be costly to call public-functions. To keep efficient gas fees, a single function that combines `unvote` and `vote` will be more efficient. The following function would get the job done:
 
 ```clarity
-(define-public (unvoteAndVote (orange uint) (beige uint) (sky uint) (lime uint))
+(define-public (unvote-and-vote (orange uint) (beige uint) (sky uint) (lime uint))
   (begin
     (try! (unvote))
     (vote orange beige sky lime)
@@ -186,10 +186,10 @@ Nonetheless, it's costly but it's also useless. `nb-of-voters` is written twice 
 ```clarity
 ::toggle_costs ;; display the costs of each call
 (contract-call? .color-vote vote u1 u2 u3 u4)
-(contract-call? .color-vote unvoteAndVote u4 u3 u2 u1)
+(contract-call? .color-vote unvote-and-vote u4 u3 u2 u1)
 ```
 
-#### The cost of `unvoteAndVote`:
+#### The cost of `unvote-and-vote`:
 |                      | Consumed | Limit      |
 |----------------------|----------|------------|
 | Runtime              | 44518    | 5000000000 |
@@ -198,7 +198,7 @@ Nonetheless, it's costly but it's also useless. `nb-of-voters` is written twice 
 | **Write count**      | **6**    | 7750       |
 | Write length (bytes) | 544      | 15000000   |
 
-If it can be significantly optimized, we'll do it. Execution costs are important when running on a blockchain. Let's write a better `revote` function that will do almost the same thing but without calling the existing functions.
+If it can be significantly optimized, we'll do it. Execution costs are important when running on a blockchain. **Write a better `revote` function that will do almost the same thing but without calling the existing functions.**
 
 <details>
 <summary>Solution: Clarity Code</summary>
@@ -218,7 +218,7 @@ If it can be significantly optimized, we'll do it. Execution costs are important
 ```
 </details>
 
-Try calling `unvoteAndVote` and `revote` in the Clarinet console and compare the costs. You'll see there is a real improvement on all metrics. `unvoteAndVote` can now be deleted.
+Try calling `unvote-and-vote` and `revote` in the Clarinet console and compare the costs. You'll see there is a real improvement on all metrics. `unvote-and-vote` can now be deleted.
 
 #### The utput cost of `revote`:
 |                      | Consumed | Limit      |
@@ -246,3 +246,6 @@ In the 2nd article, we've seen how to use `map-insert`. We are now able to edit 
 The article concludes the first part of this series. Our contract is quite complete right now. The next articles will focus on developing the web app that will be used to vote and interact with our contract :raised_hands:
 
 There will be one or two bonus articles to improve this contract. One of them will be about rewarding voters with a (fun) NFT :eyes:
+
+> 💻 **Read the code on GitHub**. The code of this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-6).  
+> There is a [PR associated with this article](https://github.com/hugocaillard/clarity-voting-tuto/pull/6).

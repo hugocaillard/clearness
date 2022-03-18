@@ -10,5 +10,5 @@ app/tailwind.css
 
 .DS_Store
 
-test-results/
-playwright-report/
+test-results
+playwright-report

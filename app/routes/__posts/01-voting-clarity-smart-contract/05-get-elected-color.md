@@ -282,5 +282,5 @@ The next article will go off without a hitch compared to this one. Two functions
 
 A break is well deserved for now :tea: :coffee: :glass_of_milk:
 
-> 💻 Read the code on GitHub. The code related to this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-5).  
+> 💻 **Read the code on GitHub**. The code of this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-5).  
 > There is a [PR associated with this article](https://github.com/hugocaillard/clarity-voting-tuto/pull/5).

@@ -96,7 +96,7 @@ This first article is quite short; we are just getting started. We still learned
 In the next article, we'll see how to authorize only one vote per user.
 
 > 💻 All along this tutorial, the code wil be available on GitHub. [Here is the repository](https://github.com/hugocaillard/clarity-voting-tuto).
-> The code related to this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-1).
+> The code of this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-1).
 
 
 <details>

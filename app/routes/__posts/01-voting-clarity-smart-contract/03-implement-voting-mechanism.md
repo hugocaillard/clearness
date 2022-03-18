@@ -168,5 +168,5 @@ Things are starting to look great. We have a working voting system. We've only s
 
 In the next article, we'll see how to write unit tests for our contract.
 
-> 💻 Read the code on GitHub. The code related to this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-3).  
+> 💻 **Read the code on GitHub**. The code of this article is on [this branch](https://github.com/hugocaillard/clarity-voting-tuto/tree/step-3).  
 > There is a [PR associated with this article](https://github.com/hugocaillard/clarity-voting-tuto/pull/3).
