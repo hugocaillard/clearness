@@ -1,4 +1,6 @@
 ---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
 title: Implementing a voting system
 description: A beginner's friendly series of articles in which you'll learn to code a Clarity Smart Contract. The goal is to develop an *on-chain* voting system.
 posts:

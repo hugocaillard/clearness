@@ -1,3 +1,8 @@
+---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+---
+
 ## Get the elected color
 
 At the end of the previous article, we had a working voting Smart Contract. We'll soon be able to start working on the front-end application to interact with the contract. Participants should be able to:

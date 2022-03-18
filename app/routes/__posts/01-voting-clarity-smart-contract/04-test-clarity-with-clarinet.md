@@ -1,3 +1,8 @@
+---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+---
+
 ## Test our Smart Contract with Clarinet
 
 A lot of manual testing has been done in the previous article with the Clarinet Repl and `contract-call?`. On bigger projects, it can become painful to manually test all features. Let's see how to implement unit tests with Clarinet.

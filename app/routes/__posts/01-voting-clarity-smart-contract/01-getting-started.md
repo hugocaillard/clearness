@@ -1,3 +1,8 @@
+---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+---
+
 ## Write your first Clarity Smart Contract
 
 {/*
