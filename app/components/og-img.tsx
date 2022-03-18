@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Title = () => (
-  <h1 className="text-7xl !font-bold mb-5 text-blue-700">Ӿ Clearness</h1>
+  <h1 className="text-7xl !font-bold mb-4 text-blue-700">Ӿ Clearness</h1>
 )
 
 const Container = ({ children }: { children: JSX.Element[] | JSX.Element }) => (
@@ -41,17 +41,17 @@ export function OgImagePosts({ chapter, index }: Props) {
       <h2 className="text-5xl !font-bold mb-4">{title}</h2>
 
       <div
-        className="max-w-3xl text-xl text-gray-500"
+        className="max-w-3xl text-2xl text-gray-500"
         dangerouslySetInnerHTML={{ __html: marked(description) }}
       />
 
-      <ol className="mt-4 ml-6 list-decimal">
+      <ol className="mt-3 ml-6 list-decimal">
         {posts
           .filter(({ wip }) => !wip)
           .map((p, i) => (
             <li
               key="slug"
-              className={`text-xl font-medium ${
+              className={`text-2xl font-medium ${
                 i === index ? 'font-bold text-gray-800' : 'text-blue-700'
               }`}
             >
@@ -66,13 +66,13 @@ export function OgImagePosts({ chapter, index }: Props) {
 export function OgImageIndex() {
   return (
     <Container>
-      <p className="text-2xl mb-5">
+      <p className="text-4xl mt-12 mb-14">
         Learn to code Smart Contracts on Bitcoin thanks to
         <br />
         Stacks and the <span className="font-semibold">Clarity Language.</span>
       </p>
 
-      <p className="text-3xl font-bold">
+      <p className="text-4xl font-bold">
         <Htag>Web3</Htag> <Htag>DAO</Htag> <Htag>NFT</Htag> <Htag>Clarity</Htag>{' '}
         <Htag>Stacks</Htag> <Htag>Bitcoin</Htag>
       </p>

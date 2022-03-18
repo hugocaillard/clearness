@@ -1,6 +1,6 @@
 ---
 title: Implementing a voting system
-description: A beginner's friendly series of articles in which you'll learn to code a Clarity Smart Contract. The goal of this project is to develop an *on-chain* voting system.
+description: A beginner's friendly series of articles in which you'll learn to code a Clarity Smart Contract. The goal is to develop an *on-chain* voting system.
 posts:
   01-getting-started:
     title: Write your first Clarity Smart Contract
