@@ -1,4 +1,6 @@
 ---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
 title: Clarity Annexes
 description: Standalone articles focusing on specific aspects of the Stacks / Clarity ecosystem
 posts:

@@ -1,3 +1,8 @@
+---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+---
+
 ## Implement the basic voting mechanism
 
 At this stage, we have a working Smart Contract that only counts the number of "voters" and allows only one vote per address. In this article, we'll see how to implement the actual voting system.

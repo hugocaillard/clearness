@@ -1,5 +1,9 @@
-# From JS to Clarity
+---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+---
 
+# From JS to Clarity
 
 ## Functions
 

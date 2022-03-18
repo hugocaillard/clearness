@@ -1,3 +1,8 @@
+---
+headers:
+  Cache-Control: public, immutable, max-age=180, s-maxage=2592000
+---
+
 ## Iterate on Clarity lists
 
 The [Clarity language reference](https://github.com/clarity-lang/reference/blob/5cffb641762ee49ef7b2bde624a4abc3fe55d5f4/reference.md) specifies a list of "limitations". The second one is:

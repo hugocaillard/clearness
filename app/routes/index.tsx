@@ -1,4 +1,5 @@
 import {
+  HeadersFunction,
   LoaderFunction,
   MetaFunction,
   useLoaderData,
@@ -13,6 +14,14 @@ import { ChapterInfo, getChapters } from '~/data/posts'
 import { ContextType } from '~/root'
 import { OgImageIndex } from '~/components/og-img'
 import { getMeta, getCanonical, isOg } from '~/data/meta'
+
+export const headers: HeadersFunction = () => {
+  return {
+    // 3min browser cache (3 * 60)
+    // 30days CDN cache (30 * 24 * 60 * 60)
+    'Cache-Control': 'public, immutable, max-age=180, s-maxage=2592000',
+  }
+}
 
 export const meta: MetaFunction = ({ data }) => {
   const title = 'Clearness'
