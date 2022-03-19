@@ -68,6 +68,10 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta
+          name="google-site-verification"
+          content="AdZrNXdONpMrq1hiNOUwou54kcsK3Z57UWKsVKe5X0A"
+        />
         <Meta />
 
         <Links />
