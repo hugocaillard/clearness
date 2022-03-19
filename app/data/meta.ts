@@ -4,6 +4,8 @@ const base = 'https://www.clearness.dev'
 
 const strip = (path: string[]) => path.map((p) => p.replace(/ |\//g, ''))
 
+const imageSuf = '19032022'
+
 export const getCanonical = (path: string[] = []) =>
   path.length === 0 ? base : `${base}/${strip(path).join('/').toLowerCase()}`
 
@@ -34,7 +36,7 @@ export function getMeta(data: Meta) {
     'og:type': data.type,
     'og:title': data.title,
     'og:description': data.description,
-    'og:image': image,
+    'og:image': `${image}?${imageSuf}`,
     'og:image:width': '1024',
     'og:image:height': '512',
     'og:image:alt': data.alt,
@@ -46,7 +48,7 @@ export function getMeta(data: Meta) {
     'twitter:url': url,
     'twitter:title': data.title,
     'twitter:description': data.description,
-    'twitter:image': image,
+    'twitter:image': `${image}?${imageSuf}`,
     'twitter:image:alt': data.alt,
   }
 }
