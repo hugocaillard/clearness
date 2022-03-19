@@ -18,6 +18,14 @@ Here is a list of useful links to learn Clarity. Bookmark 'Em all!
 
 - [Stacks Blockchain API Reference](https://hirosystems.github.io/stacks-blockchain-api/)
 
+### Articles
+
+- [Kenny's Articles on DEV.to](https://dev.to/krgrs) 
+
+### Videos
+
+- [[Clarinet 101](https://www.youtube.com/playlist?list=PL5Ujm489LoJaAz9kUJm8lYUWdGJ2AnQTb) Ludo Galabru takes beginners through the fundamentals of Clarinet
+
 
 ### (Developer) Tools
 

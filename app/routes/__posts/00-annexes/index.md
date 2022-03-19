@@ -14,7 +14,7 @@ posts:
     title: Useful links
     description: Useful links about the Stacks and Clarity developer ecosystem
     publicationDate: 11/02/2022
-    lastEditDate: 11/03/2022
+    lastEditDate: 19/03/2022
     wip: false
   03-coding-style:
     title: Coding Style
