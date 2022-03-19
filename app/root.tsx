@@ -72,6 +72,7 @@ export default function App() {
           name="google-site-verification"
           content="AdZrNXdONpMrq1hiNOUwou54kcsK3Z57UWKsVKe5X0A"
         />
+        <meta name="msvalidate.01" content="F17AA050EBCE802F8BC336D0BE9D799A" />
         <Meta />
 
         <Links />
