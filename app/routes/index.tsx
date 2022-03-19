@@ -23,7 +23,7 @@ export const headers: HeadersFunction = () => {
 }
 
 export const meta: MetaFunction = ({ data }) => {
-  const title = 'Clearness'
+  const title = 'Clearness - Learn Clarity, build Smart Contracts on Bitcoin'
   const description =
     'Learn to code Smart Contracts on Bitcoin thanks to Stacks and the Clarity Language. Learn Web3, DAO, NFT etc'
 

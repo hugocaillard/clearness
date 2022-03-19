@@ -13,7 +13,9 @@ test.use({ baseURL: 'http://localhost:3011' })
 test.describe('home page', async () => {
   test('has the right head data', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator(sel.title)).toHaveText('Clearness')
+    await expect(page.locator(sel.title)).toHaveText(
+      'Clearness - Learn Clarity, build Smart Contracts on Bitcoin',
+    )
     await expect(page.locator(sel.canonical)).toHaveAttribute('href', base)
     await expect(page.locator(sel.ogUrl)).toHaveAttribute('content', base)
   })

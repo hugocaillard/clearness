@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Title = () => (
-  <h1 className="text-7xl !font-bold mb-4 text-blue-700">Ӿ Clearness</h1>
+  <h1 className="text-7xl !font-bold mb-4 text-blue-700">Ӿ Clearness.dev</h1>
 )
 
 const Container = ({ children }: { children: JSX.Element[] | JSX.Element }) => (
