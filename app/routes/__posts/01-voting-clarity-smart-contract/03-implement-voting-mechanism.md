@@ -73,7 +73,7 @@ It makes it super easy for participants to double-check their vote when submitti
 
 > :bulb: In the code snippet above, we replaced `(begin)` with `(let ())`. [`let`](https://docs.stacks.co/references/language-functions#let) allows to define local variables and assign them to values or expressions. Here, we assign a list to `values`, it will make it easier to use later.
 
-This new vote can be added to the scores, it's only a matter of adding two lists of 4 items together. If you're not sure how to do it, I recommend you to refer to the ["Iterate on lists" article](/00-annexes/04-iterate-on-lists#map). Indeed, we can use `map` and `+` to sum the lists. The result is stored in the `scores` variables.
+This new vote can be added to the scores, it's only a matter of adding two lists of 4 items together. If you're not sure how to do it, I recommend you to refer to the ["Iterate on lists" article](/02-clarity-language/01-iterate-on-lists#map). Indeed, we can use `map` and `+` to sum the lists. The result is stored in the `scores` variables.
 
 ```clarity
   (var-set scores (map + (var-get scores) values))
@@ -127,7 +127,7 @@ Let's declare a function `is-valid` that takes a value and check if it's `<= u5`
 
 We defined a `MAX_SCORE` constant at the beginning of the contract. It's not mandatory but it does make our contract more understandable.  
 Then, the `is-valid` function will be called for each value of the vote. The `valid` argument is initialized at `true` and if a value is greater than 5, `valid` will be set to false and stay false thanks to `(and)`.  
-:point_right: If you find it hard to understand, have a look at the fold section in the ["Iterate on lists" articles](/00-annexes/04-iterate-on-lists#fold).
+:point_right: If you find it hard to understand, have a look at the fold section in the ["Iterate on lists" articles](/02-clarity-language/01-iterate-on-lists#fold).
 
 ### Better errors
 

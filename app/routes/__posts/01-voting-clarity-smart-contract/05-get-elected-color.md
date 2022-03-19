@@ -206,7 +206,7 @@ You can add this code to your test suite (`color-vote_test.ts`), run `$ clarinet
 <details>
 <summary>Hint 1</summary>
 
-Similarly to `get-colors`, we'll want to iterate on the color IDs, but we only want to return one of the colors. Or none. So we won't use `map` to iterate on the colors but `fold`. As always, have a look at the ["Iterate on lists" articles](/00-annexes/04-iterate-on-lists#fold) if you need to check how `fold` works.
+Similarly to `get-colors`, we'll want to iterate on the color IDs, but we only want to return one of the colors. Or none. So we won't use `map` to iterate on the colors but `fold`. As always, have a look at the ["Iterate on lists" articles](/02-clarity-language/01-iterate-on-lists#fold) if you need to check how `fold` works.
 
 Let's write the `get-elected` function that will call `find-best` on each id thanks to `fold`.  
 This initial value of fold will be `none`.
