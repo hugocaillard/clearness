@@ -1,12 +1,14 @@
 import invariant from 'tiny-invariant'
 
 import * as annexes from '~/routes/__posts/00-annexes/index.md'
-import * as chapter01 from '~/routes/__posts/01-voting-clarity-smart-contract/index.md'
-import * as chapter02 from '~/routes/__posts/02-build-the-voting-client/index.md'
+import * as votingChap01 from '~/routes/__posts/01-voting-clarity-smart-contract/index.md'
+import * as clarityLang from '~/routes/__posts/02-clarity-language/index.md'
+import * as votingChap02 from '~/routes/__posts/03-build-the-voting-client/index.md'
 
 const chapters = {
-  '01-voting-clarity-smart-contract': chapter01,
-  '02-build-the-voting-client': chapter02,
+  '01-voting-clarity-smart-contract': votingChap01,
+  '02-clarity-language': clarityLang,
+  '03-build-the-voting-client': votingChap02,
   '00-annexes': annexes,
 }
 

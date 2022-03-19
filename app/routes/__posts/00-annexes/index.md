@@ -2,7 +2,7 @@
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 title: Clarity Annexes
-description: Standalone articles focusing on specific aspects of the Stacks / Clarity ecosystem
+description: Stacks / Clarity ecosystem related articles
 posts:
   01-setting-up-env:
     title: Setting up your environment
@@ -22,13 +22,7 @@ posts:
     publicationDate: 15/02/2022
     lastEditDate: 11/03/2022
     wip: false
-  04-iterate-on-lists:
-    title: Iterate on lists
-    description: Iterate with map(), filter() and fold()
-    publicationDate: 18/02/2022
-    lastEditDate: 18/02/2022
-    wip: false
-  05-from-js-to-clarity:
+  04-from-js-to-clarity:
     title: From JS to Clarity
     description: Transform your JavaScript or TypeScript knowledge into Clarity skills
     publicationDate: 20/02/2022
