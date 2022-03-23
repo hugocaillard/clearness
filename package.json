@@ -10,7 +10,8 @@
     "dev:css": "tailwindcss -i ./app/app.css -o ./app/tailwind.css --watch",
     "postinstall": "remix setup node",
     "test": "playwright test ./tests",
-    "generate-og": "playwright test ./tools/opengraph/generate-og-images.test.ts"
+    "generate-og": "playwright test ./tools/opengraph/generate-og-images.test.ts",
+    "generate-sitemap": "node ./tools/generate-sitemap.mjs"
   },
   "dependencies": {
     "@remix-run/react": "^1.1.3",
