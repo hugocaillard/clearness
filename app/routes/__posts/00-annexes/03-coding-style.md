@@ -26,7 +26,7 @@ In order to ease the readability of the code, limit to 80 characters per line:
 
 ### One line function
 
-It ok to write functions on one line when they are short. IT's also ok to write them on multiple lines if you find it more consistent.
+It's ok to write functions on one line when they are short. It's also ok to write them on multiple lines if you find it more consistent.
 
 ```clarity
 ✅
