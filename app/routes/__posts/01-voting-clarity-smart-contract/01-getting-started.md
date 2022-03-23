@@ -27,8 +27,6 @@ In this series of article, we'll develop a voting system in which the participan
 
 ### Create the project
 
-Let's create the project and the contract file.
-
 We'll use [Clarinet](https://github.com/hirosystems/clarinet) to manage our project. Take a look the [this article](/00-annexes/01-setting-up-env) to know more about setting up your environment.
 Open your terminal and type the following commands:
 
@@ -44,7 +42,7 @@ Open the file "contracts/color-vote.clar". It might contains some boilerplate co
 ### Save the number of voters
 
 In order to compute the average grade of each color, we'll have to know the total number of voters.
-We will define a top level variable to store this value. While we're at it, let's add a read-only function to expose `nb-of-voters`.
+We will define a top level variable to store this value. While we're at it, add a read-only function to expose `nb-of-voters`.
 
 ```clarity
 (define-data-var nb-of-voters uint u0)
@@ -63,7 +61,7 @@ To test our contract, run the following command in the REPL:
 ```
 It should print `u0`, the value of the `nb-of-voters` variable.
 
-Let's define a public "vote" function that will simply increment the number of voters every time it's called. Add it at the end of the file.
+Define a public "vote" function that will simply increment the number of voters every time it's called. Add it at the end of the file.
 
 ```clarity
 (define-public (vote)
@@ -89,7 +87,7 @@ Let's put our code to the test. In your terminal, kill the REPL if it's still ru
 (contract-call? .color-vote get-nb-of-voters)
 ```
 
-The commands should respectively print `u0`, `(ok true)` and `u1`. It means that our contract is running as expected. Currently `vote` can be called many times and it'll keep incrementing the value `get-nb-of-voters`. Let's prevent that.
+The commands should respectively print `u0`, `(ok true)` and `u1`. It means that our contract is running as expected. Currently `vote` can be called many times and it'll keep incrementing the value `get-nb-of-voters`.
 
 ### Conclusion
 

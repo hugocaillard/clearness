@@ -11,7 +11,7 @@ At this stage, we have a working Smart Contract that only counts the number of "
 ### Data Structure
 
 Our vote will have **4 options**. As we've seen in the [first article](/01-voting-clarity-smart-contract/01-getting-started#the-project), thanks to "majority judgment", it would also work with more (or less) options.  
-Participants will be asked to vote for their favorite colors. First, let's store a constant with the list of candidate colors (in hexadecimal).
+Participants will be asked to vote for their favorite colors. First, define a constant with the list of candidate colors (in hexadecimal).
 
 ```clarity
 ;; orange beige sky lime
@@ -57,7 +57,7 @@ To implement the voting mechanism, this function will be modified to accept the 
 (define-public (vote (values (list 4 uint))) ...)
 ```
 
-It would be ok for a private function but since this one is public, we can try to give more sense to the arguments. Let's add one argument per color and then store it in a list:
+It would be ok for a private function but since this one is public, we can try to give more sense to the arguments. Our function will accept one argument per color and then store it in a list:
 
 ```clarity
 (define-public (vote (orange uint) (beige uint) (sky uint) (lime uint))
@@ -110,7 +110,7 @@ It should still return `(ok true)` if you call it one time and `(err u403)` if y
 ### Validate the vote values
 
 We want to make sure that participants give a score from 0 to 5. Since we are using unsigned integers, the values are always greater or equal than 0. We have to check that they're lower than or equal to 5. We could check each value, yet it might be cleaner to do it with a `fold`.  
-Let's declare a function `is-valid` that takes a value and check if it's `<= u5` and call it with fold:
+Declare a function `is-valid` that takes a value and check if it's `<= u5` and call it with fold:
 
 ```clarity
 (define-constant MAX_SCORE u5)

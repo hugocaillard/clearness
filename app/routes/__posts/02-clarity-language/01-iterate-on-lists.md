@@ -34,7 +34,7 @@ What do we learn with these examples?
 
 Finally, they all take a function as their first argument (`cook`, `isCooked` & `makeBurger`). The second argument is a **sequence (list, buffer, or string)**. `fold` takes a third argument, we'll talk more about it later.
 
-Let's focus on each of these functions.
+We will focus on each of these functions.
 
 ---
 ## map
@@ -42,7 +42,7 @@ Let's focus on each of these functions.
 The `map` function takes at least 2 arguments. The first one is a function that will be called for each element of the provided sequences. It also takes one or many sequences (1..N) of the same type.
 It always returns a list. 
 
-Let's take a look at two examples from the [official doc](https://docs.stacks.co/references/language-functions#map):
+Take a look at two examples from the [official doc](https://docs.stacks.co/references/language-functions#map):
 ```clarity
 ;; 1st
 (map not (list true false true false)) ;; returns (false true false true)
@@ -53,7 +53,7 @@ Let's take a look at two examples from the [official doc](https://docs.stacks.co
 The first example is very basic, `map` will apply the `not` function on each boolean of the provided list. So that in the result `true` becomes `false` and _vice-versa_.  
 The second example shows that many sequences can be given. It will apply the `+` function to each corresponding item  (`(+ 1 1 1) ;; => 3`...). It works because `(+)` can take more than 2 arguments.
 
-Let's put it to practice!
+Time to put it to practice!
 
 ### Exercise 1:
 Write a `square` function so that `(map square <list>)` returns the squared value of each number (uint) of the list.
@@ -88,9 +88,9 @@ Note that we'll only manipulate unsigned integers (`uints`).
 </details>
 
 ### Exercise 2:
-Let's define a data-map matching IDs (uint) to Pseudos (string-utf8). Write a public function `get-10-pseudos` that takes a list of up to 10 IDs and returns the matching 10 pseudos.
+Define a data-map matching IDs (uint) to Pseudos (string-utf8). Write a public function `get-10-pseudos` that takes a list of up to 10 IDs and returns the matching 10 pseudos.
 
-:point_right: Let's take a minute to clarify that the `map` function is not the same thing as a `data-map`. The latter is a data structure used to store data within a Clarity smart contract.
+:point_right: Note that the `map` function is **not** the same thing as a `data-map`. The latter is a data structure used to store data within a Clarity smart contract.
 
 ```clarity
 (define-map pseudos uint (string-utf8 100))
@@ -167,7 +167,7 @@ Here is a nice example from the [official doc](https://docs.stacks.co/references
 ```
 
 It's pretty much self-explaining, it's also a nice example to show that if the second argument is a string, the output is of the same type.
-Let's have a look at another example from the doc:
+Here is another example from the doc:
 
 ```clarity
 (filter not (list true false true false false)) 
@@ -327,7 +327,7 @@ In this exercise, we'll try and write a read-only function to find the biggest n
 <details>
 <summary>Hint</summary>
 
-A hint is probably not needed here, it's quite similar to the previous exercises. You will have to write a private function, let's call it `return-biggest` that will return the biggest of two numbers. Pass it to `fold` that will compare all of the items of the list versus the previous biggest.
+A hint is probably not needed here, it's quite similar to the previous exercises. You will have to write a private function, call it `return-biggest`, that will return the biggest of two numbers. Pass it to `fold` that will compare all of the items of the list versus the previous biggest.
 </details>
 
 <details>

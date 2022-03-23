@@ -5,7 +5,7 @@ headers:
 
 ## Test our Smart Contract with Clarinet
 
-A lot of manual testing has been done in the previous article with the Clarinet Repl and `contract-call?`. On bigger projects, it can become painful to manually test all features. Let's see how to implement unit tests with Clarinet.
+A lot of manual testing has been done in the previous article with the Clarinet Repl and `contract-call?`. On bigger projects, it can become painful to manually test all features. In a few minutes you will be able to implement unit tests with Clarinet.
 
 ### Clarinet test
 
@@ -13,7 +13,7 @@ In the first article of this series, we use `$ clarinet contract new color-vote`
 
 > :bulb: Clarinet's test suites are based on [Deno](https://deno.land/). Just like Node, it's a runtime for JavaScript, that also supports TypeScript. That's why we'll our tests in TS files. Although it's ok if you write regular JS.
 
-Open `colors-vote_tests.ts` and take some time to look at it, read the comments. Let's clean it a little so it looks like that:
+Open `colors-vote_tests.ts` and take some time to look at it, read the comments. Once cleaned a little, it looks like that:
 
 ```ts
 import {
@@ -44,7 +44,7 @@ Tx.contractCall(contract: string, method: string, args: string[], sender: string
 ```
 
 The first argument is the contract name, in our case `color-vote`. Followed by the method we want to call: `get-nb-of-voters`, which takes no arguments so args will be `[]`. Finally, `sender` is the address of the tx-sender, which we can get with the `accounts` parameter of the test function. Indeed, Clarinet will load the config from `settings/devnet.toml`, which describes a list of fake accounts.  
-Let's put it all together:
+Putting it all together:
 
 ```ts
 Clarinet.test({

@@ -10,7 +10,7 @@ At the end of the previous article, we had a working voting Smart Contract. We'l
 1. ✅ vote for each candidate
 1. ❌ get the winner
 
-Currently, we can only do 2. Let's focus on 1 and 3.
+Currently, we can only do 2. The article focuses on 1 and 3.
 
 ### Get the colors candidates
 
@@ -104,7 +104,7 @@ The test above shows you how to use `exepectTuple` and check that the returned o
 - now that we can fetch the colors, we can test that `vote` does save the data :+1:
 
 <details>
-<summary>Done already? Alright let's have a look at a possible way to do it</summary>
+<summary>Done already? Alright here is a possible way to do it</summary>
 
 ```ts
 Clarinet.test({
@@ -236,7 +236,7 @@ Here is the signature of the function:
 )
 ```
 
-Let's complete the function so that it returns `(some { id: uint, score: uint })`
+Complete the function so that it returns `(some { id: uint, score: uint })`
 </details>
 
 Have a look at the solution even if you're not done, as long as you did your best to try :muscle:

@@ -39,7 +39,7 @@ We'll add it to our code later. Let's see how we can use it to check if the call
 
 > :bulb: Noticed the `?` in `map-get`? It's a convention meaning that the function returns an `optional` type. Which can either be `(some value)` or `none`.
 
-To know if the caller already voted, we'll check if `map-get?` returns some value or not. The function `is-none` takes an optional value and returns true or false. Knowing that, we could use an `if` condition to check but a cleaner solution is to use `asserts!`. Let's see how to use both of them.
+To know if the caller already voted, we'll check if `map-get?` returns some value or not. The function `is-none` takes an optional value and returns true or false. Knowing that, we could use an `if` condition to check but a cleaner solution is to use `asserts!`. Here is a comparison of both.
 
 ```clarity
 ;; the two functions behave exactly the same way
@@ -69,7 +69,7 @@ To know if the caller already voted, we'll check if `map-get?` returns some valu
 
 ### Exercise time
 
-Alright let's put this knowledge into practice. Now that you know about maps, `is-none` and `asserts!`, you may be able to check if the caller already voted. So that, if someone **call the vote function twice, we can throw an error**. Don't forget to add the `map-insert` as well.
+Now you will put this knowledge into practice. Now that you know about maps, `is-none` and `asserts!`, you may be able to check if the caller already voted. So that, if someone **call the vote function twice, we can throw an error**. Don't forget to add the `map-insert` as well.
 
 Give it a try and look at the clues if you are stuck.
 
