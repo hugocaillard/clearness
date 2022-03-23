@@ -5,6 +5,10 @@ headers:
 
 ## Set up the front application
 
+In the [previous tutorial](/01-voting-clarity-smart-contract), we learned to develop a basic Smart Contract for the Stacks blockchain. One question you may ask is, how do people will interact with it? How will they actually call the "vote" function of the contract.  
+We can consider the Smart Contract as a piece of our back-end. 
+
+
 Let's write some TypeScript
 
 In order to develop Smart Contracts on Bitcoin, the choices are currently pretty limited; Stacks and Clarity to the rescue. Whereas building a web application offers a lot of options.

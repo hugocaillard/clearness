@@ -33,7 +33,7 @@ test.describe('category page', () => {
     await page.goto(path)
 
     await expect(page.locator(sel.title)).toHaveText(
-      'Clearness - Clarity Annexes',
+      'Clearness - Learn Clarity - Clarity Annexes',
     )
     await expect(page.locator(sel.canonical)).toHaveAttribute('href', url)
     await expect(page.locator(sel.ogUrl)).toHaveAttribute('content', url)
@@ -60,7 +60,7 @@ test.describe('article page', () => {
     await page.goto(path)
 
     await expect(page.locator(sel.title)).toHaveText(
-      'Clearness - Clarity Annexes - Coding Style',
+      'Clearness - Learn Clarity - Coding Style',
     )
     await expect(page.locator(sel.canonical)).toHaveAttribute('href', url)
     await expect(page.locator(sel.ogUrl)).toHaveAttribute('content', url)

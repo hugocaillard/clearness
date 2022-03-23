@@ -40,7 +40,7 @@ export const meta: MetaFunction = ({ data, location }) => {
   if (slug) {
     const { posts } = data
     const post = posts.find((p) => p.slug === slug)!
-    const title = `Clearness - Lean Clarity - ${post.title}`
+    const title = `Clearness - Learn Clarity - ${post.title}`
     const { description } = post
 
     return getMeta({
@@ -52,7 +52,7 @@ export const meta: MetaFunction = ({ data, location }) => {
     })
   }
 
-  const title = `Clearness - Lean Clarity - ${data.title}`
+  const title = `Clearness - Learn Clarity - ${data.title}`
   const { description } = data
   return getMeta({
     title,

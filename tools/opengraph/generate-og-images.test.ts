@@ -45,8 +45,8 @@ async function getPaths() {
     )
 
   return ([] as string[]).concat(
-    mdData.map((d) => `${d.chapter}`),
-    chaptersPaths,
+    mdData.map((d) => `${d.chapter}`), // chapter pages
+    chaptersPaths, // article pages
   )
 }
 
