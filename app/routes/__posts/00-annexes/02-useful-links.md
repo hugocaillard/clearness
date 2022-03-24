@@ -3,8 +3,6 @@ headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 ---
 
-## Useful links
-
 Here is a list of useful links to learn Clarity. Bookmark 'Em all!
 
 ### Documentation and tutorials

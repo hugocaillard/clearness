@@ -9,7 +9,7 @@ export function H1({ children }: HeadingProps) {
 
 export function H2({ children, small }: HeadingProps) {
   const className = !small
-    ? 'text-3xl !font-bold leading-10 mb-1'
+    ? 'text-3xl !font-bold leading-10 mb-2'
     : 'text-xl !font-semibold'
 
   return <h2 className={className}>{children}</h2>

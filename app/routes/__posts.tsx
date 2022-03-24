@@ -16,6 +16,7 @@ import { PrevNextLink } from '~/components/prev-next-link'
 import { cleanClass } from '~/components/utils'
 import { OgImagePosts } from '~/components/og-img'
 import { getMeta, isOg } from '~/data/meta'
+import { H2 } from '~/components/headings'
 
 function isValidData(data: Record<string, any>): data is ChapterInfo {
   if (!Array.isArray(data.posts)) return false
@@ -100,6 +101,9 @@ export default function Posts() {
   return (
     <article className="min-w-full">
       <ChapterTOC {...chapter} />
+      <div className="my-6">
+        {index !== null ? <H2>{posts[index].title}</H2> : ''}
+      </div>
       <div
         className={cleanClass(`prose prose-blue dark:prose-invert max-w-none\
         prose-li:prose-lg prose-p:prose-lg\

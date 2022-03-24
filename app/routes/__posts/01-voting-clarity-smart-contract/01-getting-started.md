@@ -3,8 +3,6 @@ headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 ---
 
-## Write your first Clarity Smart Contract
-
 {/*
 Goal of the article:
 - Explain what is a smart contract

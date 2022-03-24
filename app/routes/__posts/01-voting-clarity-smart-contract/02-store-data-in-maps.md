@@ -3,8 +3,6 @@ headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 ---
 
-## Store data in maps
-
 ### Allow only one vote per address
 
 To do so, our contract will have to remember whether someone voted or not. By "someone", I mean the STX address of the voter which can be accessed with `tx-sender`. The data structure needed here is a data map, a key-value store where the key will be the address and the value a boolean.  

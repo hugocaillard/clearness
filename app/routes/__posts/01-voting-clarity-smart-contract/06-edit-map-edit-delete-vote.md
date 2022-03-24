@@ -3,8 +3,6 @@ headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 ---
 
-## Update or cancel a vote
-
 Since our election isn't limited in time, we'll give the opportunity to voters to change their mind about their vote. Let's add two more features to our Smart Contract: the ability to **remove** their vote and the ability to **edit** it.
 
 ### Store the vote of participants

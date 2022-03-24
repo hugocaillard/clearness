@@ -3,8 +3,6 @@ headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 ---
 
-## Coding style
-
 To improve the readability of Clarity code (or any code), it's important to be consistent in the way it's written. It's necessary to have some good rules, but whatever the rules are, it's even more important to follow them.
 Here are some opinionated rules followed in the snippets of this website. Even if Clarity is based on Lisp, some rules are inspired by JS. Since we code in both languages, I just think it makes it easier to jump between.
 
