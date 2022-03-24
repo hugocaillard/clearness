@@ -7,7 +7,7 @@ headers:
 
 ### Allow only one vote per address
 
-To do so, our contract will have to remember wether someone voted or not. By "someone", I mean the STX address of the voter which can be accessed with `tx-sender`. The data structure needed here is a data map, a key-value store where the key will be the address and the value a boolean.  
+To do so, our contract will have to remember whether someone voted or not. By "someone", I mean the STX address of the voter which can be accessed with `tx-sender`. The data structure needed here is a data map, a key-value store where the key will be the address and the value a boolean.  
 Add this line right after the declaration of `nb-of-voters` (line 2):
 
 ```clarity
