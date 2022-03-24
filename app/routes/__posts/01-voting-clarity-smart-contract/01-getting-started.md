@@ -21,7 +21,7 @@ Smart Contracts can be seen as the back-end code of our application. They are us
 ### The Project
 
 In this series of article, we'll develop a voting system in which the participants will vote for their favorite colors. There will be 4 choices of colors. In order to vote, the voters will rate each color from 0 (bad) to 5 (excellent). The winning color is the one with the best average grade.  
-:point_right: This voting mechanism is know as the [majority judgment](https://en.wikipedia.org/wiki/Majority_judgment). It has multiple benefits. The main advantage here is to allow to define a single winner in one round of votes.
+:point_right: This voting mechanism is known as the [majority judgment](https://en.wikipedia.org/wiki/Majority_judgment). It has multiple benefits. The main advantage here is to allow to define a single winner in one round of votes.
 
 ### Create the project
 
