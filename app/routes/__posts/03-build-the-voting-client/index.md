@@ -6,8 +6,8 @@ description: Create a web application to interact with our Voting contract
 posts:
   01-setup-front:
     title: Set up the web application
-    description: Set a frontend application and make first call to our contract
+    description: Build a web3 application and make a first call to our contract
     publicationDate: 24/03/2022
     lastEditDate: 24/03/2022
-    wip: true
+    wip: false
 ---

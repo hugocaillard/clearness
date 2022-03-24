@@ -20,21 +20,20 @@ The purpose of this tuto is to focus on the **interactions between our app and t
 
 > :point_right: You can even use [stacks.js](https://github.com/hirosystems/stacks.js) instead of [micro-stacks](https://github.com/fungible-systems/micro-stacks). They have a similar API. I'll use the latter because it plays nice with Vite.
 
-### Initialize the project
-
-```sh
-$ npm init vite@latest color-app
-$ cd color-app
-$ npm i
-$ npm init @eslint/config # optional
-$ npm install -D tailwindcss postcss autoprefixer
-$ npx tailwindcss init -p
-```
-Here is the [installation guide for Tailwind](https://tailwindcss.com/docs/guides/vite). Everything else should be pretty much straight forward and up to you.
-
-
 ### Getting started with micro-stacks
 
-```sh
+Download this [project (branch: "step-0")](https://github.com/hugocaillard/color-webapp-tuto/tree/step-0) to follow along. Run:
+```bash
+$ npm i
+$ npm run dev
+```
+You application should be running on [localhost:3003](http://localhost:3003/).
+
+Have a look at the README.md to understand more about the setup. It's a simple project with an empty page and a few UI components. Here begins the fun part.
+
+```bash
 $ npm install micro-stacks zustand
 ```
+
+### micro-stacks
+

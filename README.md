@@ -25,11 +25,11 @@ Source code and articles for [clearness.dev/](https://www.clearness.dev/)
 
 To run your Remix app locally, make sure your project's local dependencies are installed:
 
-```sh
-npm install
+```bash
+$ npm install
 ```
 Afterwards, start the Remix development server like so:
 
-```sh
-npm run dev
+```bash
+$ npm run dev
 ```
