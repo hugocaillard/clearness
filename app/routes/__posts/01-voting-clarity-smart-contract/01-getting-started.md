@@ -37,7 +37,7 @@ $ clarinet contract new color-vote
 $ code . # optional, open the project in VS Code
 ```
 
-Open the file "contracts/color-vote.clar". It might contains some boilerplate comments. You can remove it.
+Open the file "contracts/color-vote.clar". It might contains some boilerplate comments. You may remove those.
 
 ### Save the number of voters
 
