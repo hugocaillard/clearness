@@ -19,6 +19,8 @@ Here is a list of useful links to learn Clarity. Bookmark 'Em all!
 ### Articles
 
 - [Kenny's Articles on DEV.to](https://dev.to/krgrs) 
+- [Property-based testing with Clarinet](https://blog.nikosbaxevanis.com/2022/03/05/clarity-property-based-testing-primer/)
+- [Model-based stateful testing with Clarinet](https://blog.nikosbaxevanis.com/2022/03/15/clarity-clarity-model-based-testing-primer/)
 
 ### Videos
 
