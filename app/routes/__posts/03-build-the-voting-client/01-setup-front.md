@@ -20,16 +20,14 @@ The following tutorial has been built with this stack:
 
 The purpose of this tuto is to focus on the **interactions between our app and the Stacks ecosystem**. So you can we won't go into details regarding the tech libraries, feel free to try and follow along with any tools you are comfortable with.
 
-> :point_right: You can even use [stacks.js](https://github.com/hirosystems/stacks.js) instead of [micro-stacks](https://github.com/fungible-systems/micro-stacks). They have a similar API. I'll use the latter because it plays nice with Vite.
-
 ### Use Stacks Wallet and the Devnet
 
 We will use the [Hiro Wallet](https://www.hiro.so/wallet#download).  
-It is recommended to set up a dedicated "development" session in my web browser with the Hiro Wallet and some developer tools. You want to keep your real wallet separated since will need to connect to fake one now. Open your the Voting smart contract project, find the file `settings/Devnet.toml`, you'll find here a list of Stack accounts. These fake accounts are used with Clarinet test, we'll also use it to connect to the Devnet locally. You can run `$ clarinet integrate` to launch the Devnet, you'll need [Docker](https://www.docker.com/) to be running.
+It is recommended to set up a dedicated "development" session in my web browser with the Hiro Wallet and some developer tools. You want to keep your real wallet separated since will need to connect to fake one now. Open your the Voting smart contract project, find the file `settings/Devnet.toml`, you'll find here a list of Stack accounts. These fake accounts are used with Clarinet test, we'll also use it to connect to the Devnet locally. You can run **`$ clarinet integrate`** to launch the Devnet, you'll need [Docker](https://www.docker.com/) to be running.
 
-> :point_right: The Devnet is a full Stacks environment that runs on your computer.
+> :point_right: The *Devnet* is a Stacks environment that runs on your computer.
 
-If not done already, open the Hiro Web Wallet, select "Already have a Stacks account? Sign in with Secret Key" and use a Secret Key from your [Devnet settings](https://github.com/hugocaillard/clarity-voting-tuto/blob/343f47fc39be15ea856f01b6e13de5cd13da3f77/settings/Devnet.toml#L13). Make sure not to use a real one. Once connected, click on "Change Network" and pick "Devnet".
+If not done already, open the Hiro Web Wallet, select *"Already have a Stacks account? Sign in with Secret Key"* and use a Secret Key from your [Devnet settings](https://github.com/hugocaillard/clarity-voting-tuto/blob/343f47fc39be15ea856f01b6e13de5cd13da3f77/settings/Devnet.toml#L13). Make sure not to use a real one. Once connected, click on "Change Network" and pick "Devnet".
 
 Now that ou Wallet is wired to the Devnet and that we are authenticated with our fake account. Let's set up our webapp.
 
@@ -147,3 +145,15 @@ export const Header = () => {
 }
 ```
 
+This is all for now. Please check the [pull request associated to this article](https://github.com/hugocaillard/color-webapp-tuto/pull/1) to see check two other implemented features:
+- Retrieve the [session in the local storage](https://github.com/hugocaillard/color-webapp-tuto/blob/6a9787acc893813d8bb74ecf51aa3e174d5dfc65/src/hooks/useAuth.ts#L15-L25), indeed, micro-stacks stores it for us :muscle:
+- Add a [disconnect function](https://github.com/hugocaillard/color-webapp-tuto/blob/6a9787acc893813d8bb74ecf51aa3e174d5dfc65/src/hooks/useAuth.ts#L30-L33) that clears the session
+
+## Conclusion
+
+In this introduction we've seen how to quickly set up a webapp project with some great tools. Thanks to micro-stacks and zustand, our first interaction with the Hiro Wallet was quite simple to integrate.
+
+In the next article, we'll see how to call our contract and fetch the vote options.
+
+> 💻 **Read the code on GitHub**. The code of this article is on [this branch](https://github.com/hugocaillard/color-webapp-tuto/tree/step-1).  
+> There is a [PR associated with this article](https://github.com/hugocaillard/color-webapp-tuto/pull/1).
