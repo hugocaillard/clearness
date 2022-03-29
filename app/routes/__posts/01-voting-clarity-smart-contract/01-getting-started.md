@@ -71,7 +71,7 @@ Define a public "vote" function that will simply increment the number of voters 
 ```
 
 :point_right: You may have noted that the function `get-nb-of-voters` was defined with **`define-read-only`** whereas `vote` was defined with **`define-public`**.  
-Both `read-only` and `public` are actually publics. The difference is that `read-only` function won't write data on the blockchain. It's super important because when a `public` function is called, the person doing it will have to pay some fees to run it. Whereas read-only functions are free to run.
+Both read-only and public are actually publics. The difference is that read-only function won't write data on the blockchain. It's super important because when a public function is called, the person doing it will have to pay some fees to run it. Whereas read-only functions are free to run.
 
 :point_right: Unlike read-only functions, public functions **must** return a **response type** (an `ok` or `error` response). That's why we wrap the response in `(ok ...)`.
 

@@ -34,6 +34,9 @@ module.exports = {
             p: {
               marginTop: '0',
             },
+            pre: {
+              marginBottom: '1.25rem !important',
+            },
             'pre code': {
               borderWidth: '0',
             },
