@@ -246,7 +246,7 @@ The tests are similar to the `unvote` ones, you'll find my proposition on the [G
 
 In the 2nd article, we've seen how to use `map-insert`. We are now able to edit or delete values in maps with `map-set` and `map-delete`.
 
-The article concludes the first part of this series. Our contract is quite complete right now. The next articles will focus on developing the web app that will be used to vote and interact with our contract :raised_hands:
+The article concludes the first part of this series. Our contract is quite complete right now. The [next articles](http://localhost:3000/03-build-the-voting-client/01-setup-web3-application) will focus on developing the Web3 app that will be used to vote and interact with our contract :raised_hands:
 
 There will be one or two bonus articles to improve this contract. One of them will be about rewarding voters with a (fun) NFT :eyes:
 
