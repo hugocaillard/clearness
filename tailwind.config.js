@@ -20,7 +20,7 @@ module.exports = {
             summary: {
               cursor: 'help',
               fontSize: '1.125rem',
-              marginBottom: '1.25rem',
+              marginBottom: '0.25rem',
             },
             'code::before': false,
             'code::after': false,

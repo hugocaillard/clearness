@@ -89,21 +89,25 @@ export default function Posts() {
   const posts = chapter.posts.filter((p) => !p.wip)
   const index = slug ? posts.findIndex((p) => p.slug === slug) : null
 
+  if (isOg(location.search)) {
+    return <OgImagePosts {...{ chapter, index }} />
+  }
+
   const [previous, next] =
     index !== null
       ? [posts[index - 1], posts[index + 1]]
       : [undefined, undefined]
 
-  if (isOg(location.search)) {
-    return <OgImagePosts {...{ chapter, index }} />
-  }
+  const post = slug ? chapter.posts.find((p) => p.slug === slug) : null
 
   return (
     <article className="min-w-full">
       <ChapterTOC {...chapter} />
-      <div className="my-6">
-        {index !== null ? <H2>{posts[index].title}</H2> : ''}
-      </div>
+      {post ? (
+        <div className="my-6">
+          <H2>{post.title}</H2>
+        </div>
+      ) : null}
       <div
         className={cleanClass(`prose prose-blue dark:prose-invert max-w-none\
         prose-li:prose-lg prose-p:prose-lg\
@@ -111,10 +115,17 @@ export default function Posts() {
         prose-li:text-black dark:prose-li:text-white`)}
       >
         <Outlet />
-        <section className="flex justify-between mt-6 pt-6 border-t border-slate-500">
-          <PrevNextLink post={previous} type="prev" />
-          <PrevNextLink post={next} type="next" />
-        </section>
+        {post?.wip ? (
+          <p>
+            <hr />
+            This article is still under progress. Please do not share.
+          </p>
+        ) : (
+          <section className="flex justify-between mt-6 pt-6 border-t border-slate-500">
+            <PrevNextLink post={previous} type="prev" />
+            <PrevNextLink post={next} type="next" />
+          </section>
+        )}
       </div>
     </article>
   )
