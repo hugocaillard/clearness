@@ -15,5 +15,5 @@ posts:
     description: Call read-only functions on our Stacks smart contract
     publicationDate: 30/03/2022
     lastEditDate: 30/03/2022
-    wip: true
+    wip: false
 ---
