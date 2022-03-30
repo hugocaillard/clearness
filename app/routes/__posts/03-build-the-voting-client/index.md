@@ -2,7 +2,7 @@
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 title: The Voting Web Application
-description: Create a web application to interact with our Voting contract
+description: Develop a Web3 Application to interact with our Voting Smart Contract from the browser
 posts:
   01-setup-web3-application:
     title: Set up the Web App and authentication
