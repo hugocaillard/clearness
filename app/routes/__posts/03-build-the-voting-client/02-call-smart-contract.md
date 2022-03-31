@@ -113,12 +113,12 @@ export async function readOnlyRequest<T extends ClarityValue>(
 
   try {
     const res = (await callReadOnlyFunction({
+      network,
       contractAddress: ADDRESS,
       contractName: CONTRACT,
       functionName: name,
       functionArgs: args,
       senderAddress: address,
-      network,
     })) as T
 
     return res

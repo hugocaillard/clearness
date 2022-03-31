@@ -11,15 +11,17 @@ const mdx = async () => {
     rehypeExternalLinks,
     rehypeSlug,
     rehypeAutolink,
+    lazyLoad,
     clarity,
   ] = await Promise.all([
-    import('remark-gfm').then((mod) => mod.default),
-    import('remark-emoji').then((mod) => mod.default),
-    import('@mapbox/rehype-prism').then((mod) => mod.default),
-    import('rehype-external-links').then((mod) => mod.default),
-    import('rehype-slug').then((mod) => mod.default),
-    import('rehype-autolink-headings').then((mod) => mod.default),
-    import('./clarity-prism.js').then((mod) => mod.default),
+    import('remark-gfm').then((m) => m.default),
+    import('remark-emoji').then((m) => m.default),
+    import('@mapbox/rehype-prism').then((m) => m.default),
+    import('rehype-external-links').then((m) => m.default),
+    import('rehype-slug').then((m) => m.default),
+    import('rehype-autolink-headings').then((m) => m.default),
+    import('rehype-plugin-image-native-lazy-loading').then((m) => m.default),
+    import('./clarity-prism.js').then((m) => m.default),
   ])
 
   return {
@@ -32,6 +34,7 @@ const mdx = async () => {
       }),
       rehypeSlug,
       rehypeAutolink,
+      lazyLoad,
     ],
   }
 }
