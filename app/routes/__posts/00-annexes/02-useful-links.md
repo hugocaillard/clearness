@@ -31,6 +31,7 @@ Here is a list of useful links to learn Clarity. Bookmark 'em all!
 ### Videos
 
 - [Clarinet 101](https://www.youtube.com/playlist?list=PL5Ujm489LoJaAz9kUJm8lYUWdGJ2AnQTb) Ludo Galabru takes beginners through the fundamentals of Clarinet
+- [Proof of Transfer (PoX): Overview](https://www.youtube.com/watch?v=eSiQzPG1xrM&t=8s) (by [Muneeb](https://twitter.com/muneeb))
 
 
 ### (Developer) Tools
