@@ -135,7 +135,7 @@ Here is what you code should look like at the end of this article. If you didn't
 
 ### Conclusion
 
-You just learned the basics of the map data structures. We've seen `define-map`, `map-insert` and `map-get?`, soon we will also use similare functions to update and delete data in maps.  
+You just learned the basics of the map data structures. We've seen `define-map`, `map-insert` and `map-get?`, soon we will also use similar functions to update and delete data in maps.  
 We've also seen how validate input data `asserts!`, we'll dot that a lot in the future. Error handling will be very important.  
 In the next article we'll implement the actual vote mechanism with a new data structure (lists) and our first private function.
 

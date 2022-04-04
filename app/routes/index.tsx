@@ -66,7 +66,10 @@ export default function Index() {
             <H2>
               <Link to={`${p.chapter.slug}/${p.slug}`}>{p.title}</Link>
             </H2>
-            <DateString date={p.publicationDate} formatter={dateFormatter} /> in{' '}
+            <span className="text-slate-500">
+              <DateString date={p.publicationDate} formatter={dateFormatter} />{' '}
+            </span>
+            in{' '}
             <span className="font-medium">
               <Link to={p.chapter.slug}>{p.chapter.title}</Link>
             </span>
