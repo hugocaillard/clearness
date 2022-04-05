@@ -17,7 +17,7 @@ posts:
     lastEditDate: 30/03/2022
     wip: false
   03-write-on-stacks-blockchain:
-    title: Create vote transactions on the smart contract
+    title: Send transactions to the smart contract
     description: Call public functions to cast a vote and write data on the Stacks blokchain. Fetch transactions data
     publicationDate: 05/04/2022
     lastEditDate: 05/04/2022

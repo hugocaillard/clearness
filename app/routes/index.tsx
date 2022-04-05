@@ -59,6 +59,15 @@ export default function Index() {
 
   return (
     <>
+      <h2 className="font-semibold text-xl">
+        ✨ Get started with Clarity:{' '}
+        <Link to="/01-getting-started" className="font-extrabold">
+          Write your First Smart Contract on Stacks
+        </Link>
+      </h2>
+
+      <hr className="mt-8 mb-6" />
+
       {posts
         .filter(({ wip }) => !wip)
         .map((p) => (
@@ -66,14 +75,14 @@ export default function Index() {
             <H2>
               <Link to={`${p.chapter.slug}/${p.slug}`}>{p.title}</Link>
             </H2>
-            <span className="text-slate-500">
+            <span className="text-slate-600 dark:text-slate-400">
               <DateString date={p.publicationDate} formatter={dateFormatter} />{' '}
             </span>
             in{' '}
             <span className="font-medium">
               <Link to={p.chapter.slug}>{p.chapter.title}</Link>
             </span>
-            <p>{p.description}</p>
+            <p className="mt-1">{p.description}</p>
           </div>
         ))}
     </>

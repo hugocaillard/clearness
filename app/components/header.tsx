@@ -20,7 +20,7 @@ document.documentElement.classList.replace(prev, theme);\
 
 export function Header({ width }: HeaderProps) {
   return (
-    <header className="sticky mb-6 py-4  border-solid border-gray-400 dark:border-gray-600">
+    <header className="sticky mt-10 mb-8 border-solid border-gray-400 dark:border-gray-600">
       <div className={`${width} flex justify-between items-center`}>
         <H1>
           <Link to="/">Ӿ Clearness</Link>

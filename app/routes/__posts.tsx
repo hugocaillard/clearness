@@ -109,7 +109,8 @@ export default function Posts() {
         </div>
       ) : null}
       <div
-        className={cleanClass(`prose prose-blue dark:prose-invert max-w-none\
+        className={cleanClass(`\
+        prose prose-blue dark:prose-sky dark:prose-invert max-w-none\
         prose-li:prose-lg prose-p:prose-lg\
         prose-p:text-black dark:prose-p:text-white\
         prose-li:text-black dark:prose-li:text-white`)}
@@ -121,7 +122,7 @@ export default function Posts() {
             This article is still under progress. Please do not share.
           </p>
         ) : (
-          <section className="flex justify-between mt-6 pt-6 border-t border-slate-500">
+          <section className="flex justify-between gap-2 mt-6 pt-6 border-t border-slate-500">
             <PrevNextLink post={previous} type="prev" />
             <PrevNextLink post={next} type="next" />
           </section>

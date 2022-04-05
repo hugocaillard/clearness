@@ -1,7 +1,7 @@
 function FooterLink({ href, text }: { href: string; text: string }) {
   return (
     <a
-      className="text-blue-700 hover:text-blue-900 dark:text-blue-500 hover:dark:text-blue-300"
+      className="text-blue-700 hover:text-blue-900 dark:text-sky-500 hover:dark:text-sky-300"
       href={href}
       target="_blank"
       rel="noreferrer"
