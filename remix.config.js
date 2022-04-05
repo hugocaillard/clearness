@@ -1,5 +1,3 @@
-// const clarity = require('./clarity-prism.js')
-
 /**
  * @type {import('@remix-run/dev/config').RemixMdxConfigFunction}
  */

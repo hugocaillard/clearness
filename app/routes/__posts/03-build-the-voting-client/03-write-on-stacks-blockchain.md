@@ -3,22 +3,26 @@ headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
 ---
 
-At this stage, the web app can read data by calling read-only functions. The next step is to write data through public functions. In this article, we'll create the voting form and send the voters choices to the contract `vote` function.
+At this stage, the web app can read data by calling read-only functions. The next step is to write data through public functions. In this article, we'll create the voting form and send the voters' choices to the contract `vote` function.
 
 Here is what we are building in this article:
 
-![Vote Form Screenshot](/images/vote-colors-ui.png "Vote Form UI Screenshot")
+<img alt="Vote Form UI Screenshot" src="/images/vote-colors-ui.png" title="Vote Form Screenshot" width="645" height="500" />
 
 ### Call the Smart Contract in JS / TS
 
-Remember our `readOnlyRequest` abstraction in `data/stacks.js`? We'll create a similar one to call public functions that write data.
+Remember our `readOnlyRequest` abstraction in `data/stacks.js`? We'll create a similar one to call public functions that write data.  
 Since the TS and JS versions are quite the same, here is directly the TS version.
 
 #### ./src/data/stacks.ts
+
 ```ts
 // add this imports
 import type { ClarityValue } from 'micro-stacks/clarity'
-import { makeContractCallToken, openTransactionPopup } from 'micro-stacks/connect'
+import {
+  makeContractCallToken,
+  openTransactionPopup,
+} from 'micro-stacks/connect'
 // ...
 // app details is required for the popup
 import { useAuth, appDetails } from '../hooks/useAuth'
@@ -48,17 +52,18 @@ export async function callContract(name: string, args: ClarityValue[] = []) {
 }
 ```
 
-As you can see, `makeContractCallToken` is quite similar to `callReadOnlyFunction`. It takes mostly the same arguments. You also have to add `appDetails` that will be displayed in the transaction popup. It also takes a private key retrieved in the user session. In a futur article, we will explore more complex calls with arguments and post-conditions (useful for transactions validation).
+As you can see, `makeContractCallToken` is quite similar to `callReadOnlyFunction`. It takes mostly the same arguments. You also have to add `appDetails` that will be displayed in the transaction popup. It also takes a private key retrieved in the user session. In a future article, we will explore more complex calls with arguments and post-conditions (useful for transactions validation).
 
-`makeContractCallToken` won't perform any action on it's own. It will generate a token – as the name suggest – that can be passed to `openTransactionPopup`.
+`makeContractCallToken` won't perform any action on its own. It will generate a token – as the name suggests – that can be passed to `openTransactionPopup`.
 
 > :bulb: The token is a [JWT](https://jwt.io/). it's a way to encode JSON data into a string and sign it with a secret key. Have a look at this [package](https://www.npmjs.com/package/jsonwebtoken) if you want to know more about it.
 
 We will now go back to the `useColorVote` store and make use of this new function. The basic implementation will be super simple. I'll also provide a more complete one with better typing.
 
-To handle the sender's vote values, we'll add a `votes` [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) to store the value of each color. Maps are simple key value stores and the key can be anything. In our case it will be the IDs of the vote options (which are BigInts).
+To handle the sender's vote values, we'll add a `votes` [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) to store the value of each color. Maps are simple key-value stores and the key can be anything. In our case, it will be the IDs of the vote options (which are BigInts).
 
 #### ./src/hooks/useColorVote.ts
+
 ```ts
 import { cvToTrueValue, uintCV } from 'micro-stacks/clarity'
 
@@ -87,11 +92,11 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 The big difference here is the `isVoteValid` method and the strict typing of a valid vote.
 
 #### ./src/hooks/useColorVote.ts
+
 ```ts
 import { cvToTrueValue, uintCV } from 'micro-stacks/clarity'
 
 import { callContract, readOnlyRequest } from '../data/stacks'
-
 // ...
 
 type ValidVote = 0 | 1 | 2 | 3 | 4 | 5
@@ -125,14 +130,15 @@ export const useColorVote = create<ColorStore>((set, get) => ({
     await callContract('vote', senderVote.map(uintCV))
   },
 }))
-
 ```
+
 </details>
 
 One last method is needed in this store to update the vote values. I named it `updateVote`, it takes two arguments, the color ID and the value of the vote.
-The method makes sure that the value is between 0 and 5, and then updates the votes map.
+The method makes sure that the value is between 0 and 5 and then updates the votes map.
 
 #### ./src/hooks/useColorVote.ts
+
 ```ts
 export const useColorVote = create<ColorStore>((set, get) => ({
   // ...
@@ -147,15 +153,14 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 
 > :point_right: In the TS version you also need to call `isVoteValid` function to ensure type safety (or use `as Vote`).
 
-At this stage, you can check that [`useColorVote.ts`](https://github.com/hugocaillard/color-webapp-tuto/blob/step-3/src/hooks/useColorVote.ts) file on the repo if you want to see the `sendVote` and `updateVote` methods all together.
+At this stage, you can check the [`useColorVote.ts`](https://github.com/hugocaillard/color-webapp-tuto/blob/step-3/src/hooks/useColorVote.ts) file on the repo if you want to see the `sendVote` and `updateVote`.
 
 The vote store is now complete and ready to write data on the blockchain.
 
 ### Build the UI and the form
 
-For completness, let's take some time to see how to create the voting form. To keep things clean I made a [`VoteInput` component](https://github.com/hugocaillard/color-webapp-tuto/blob/step-3/src/components/UI/VoteInput.tsx) that you can build or get on GitHub.
-Open the `Vote.tsx` file and import the `VoteInput` in it as well as the `Button` component.
-
+For completeness, let's take some time to see how to create the voting form. To keep things clean I made a [`VoteInput` component](https://github.com/hugocaillard/color-webapp-tuto/blob/step-3/src/components/UI/VoteInput.tsx) that you can build or get on GitHub.
+Open `Vote.tsx` and import the `VoteInput` in it as well as the `Button` component.
 
 #### ./src/pages/Vote.tsx
 ```ts
@@ -189,10 +194,156 @@ export const Vote = () => {
 }
 ```
 
-The vote input directly call `updateVote`, while the form calls and intermediary function on submit that calls send vote. To improve the form, we could add a reset button and only make the submit button active if the vote is valid. You can actually see it on the GitHub repo.
-Some UI improvements would be more than welcome as well.
+The vote input directly calls `updateVote`, while the form calls an intermediary function on submit that calls `sendVote`. To improve the form, we could add a reset button, only make the submit button active if the vote is valid, add a loading state, and other things that you can come up with.  
+You can see these improvements on the GitHub repo. Some UI improvements would be more than welcome as well.
+
+### Display the transaction status
+
+If a person casts a vote and immediately refreshes the page, they won't see that they already vote. It's because transactions can take a few minutes. Hopefully, we can retrieve the transaction and get its status, which can be success, in progress or failed.
+
+Each transaction has a unique ID, which is returned by the `contractCall` function. We will update the `sendVote` function to save the `txId` in the local storage to retrieve it on page refresh.
+
+#### ./src/pages/Vote.tsx
+```ts
+import { fetchTransaction } from 'micro-stacks/api'
+// you'll need to export `network` from stacks.ts and import here
+import { callContract, network, readOnlyRequest } from '../data/stacks'
+
+export const useColorVote = create((set, get) => ({
+  colors: null,
+  txId: localStorage.getItem('txId'),
+  lastTx: null,
+
+  // ...
+
+  async sendVote() {
+    const { votes } = get()
+    const senderVote = ids.map((id) => votes.get(id))
+
+    const txId = await callContract('vote', senderVote.map(uintCV))
+
+    // save the txId in `sendVote`
+    localStorage.setItem('txId', txId)
+    set({ txId })
+  },
+
+  async fetchLastTx() {
+    const { txId } = get()
+    if (!txId) return
+
+    const tx = await fetchTransaction({
+      url: network.getCoreApiUrl(),
+      txid: txId,
+    })
+    set({ lastTx: tx })
+  },
+}))
+```
+<details>
+<summary>Again, here the full  TS version with error handling</summary>
+
+You'll need to install the `@stacks/stacks-blockchain-api-types` package because `micro-stacks` does not expose some types at the moment.
+
+#### ./src/pages/Vote.tsx
+```ts
+import { fetchTransaction } from 'micro-stacks/api'
+import type {
+  ContractCallTransaction,
+  MempoolContractCallTransaction,
+} from '@stacks/stacks-blockchain-api-types'
+
+import { callContract, network, readOnlyRequest } from '../data/stacks'
+// ...
+
+type VoteTx = ContractCallTransaction | MempoolContractCallTransaction
+
+interface ColorStore {
+  txId: string | null
+  lastTx: VoteTx | null
+  fetchLastTx: () => Promise<void>
+}
+//...
+export const useColorVote = create<ColorStore>((set, get) => ({
+  txId: localStorage.getItem('txId'),
+  lastTx: null,
+  // ...
+  async sendVote() {
+    const { votes } = get()
+    const senderVote = ids.map((id) => votes.get(id))
+    if (!senderVote.every(isVoteValid)) return
+
+    const txId = await callContract('vote', senderVote.map(uintCV))
+    localStorage.setItem('txId', txId)
+    set({ txId })
+  },
+
+  async fetchLastTx() {
+    const { txId } = get()
+    if (!txId) return
+
+    try {
+      const tx = (await fetchTransaction({
+        url: network.getCoreApiUrl(),
+        txid: txId,
+      })) as VoteTx | { error: string }
+      if ('error' in tx) throw new Error('tx error')
+      set({ lastTx: tx })
+    } catch (err) {
+      set({ txId: null })
+      localStorage.removeItem('txId')
+    }
+  },
+}))
+
+```
+</details>
+
+Some useful data can be retrieved in the transactions (or "tx"). Especially the status and the arguments. In the `Vote.tsx` page, `fetchLastTx` will be called inside `useEffect`. We can then add some JS to display these data.
+
+
+```ts
+export const Vote = () => {
+  const {
+    txId,
+    lastTx,
+    fetchLastTx,
+  } = useColorVote()
+
+  useEffect(() => {
+    if (txId) fetchLastTx()
+  }, [txId])
+
+  return (
+    <>
+      ...
+      {lastTx ? (
+        <div>
+          <H2>Previous vote</H2>
+          <p>
+            <b>Status</b>:{' '}
+            <span className="capitalize">{lastTx.tx_status}</span>
+          </p>
+          <ul className="flex gap-3">
+            {lastTx.contract_call.function_args?.map((v) => (
+              <li>
+                <span className="font-bold capitalize">{v.name}</span>:{' '}
+                {v.repr.replace('u', '')}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </>
+  )
+}
+```
 
 ### Conclusion
+
+You now know how to **call read-only/public functions** on the Stacks blockchain and to fetch transactions data, which already opens a lot of possibilities.  
+We've also seen how to pass an array of arguments when making a call. Don't forget to transform the JS values into Clarity values.  
+
+In the next article, we'll bring some last improvements such as retrieving a vote and canceling or updating it. There will be nothing new but a good opportunity to review what you learned.
 
 > 💻 **Read the code on GitHub**. The source code of this article is on [this branch](https://github.com/hugocaillard/color-webapp-tuto/tree/step-3).
 > There is a [PR associated with this article](https://github.com/hugocaillard/color-webapp-tuto/pull/3).
