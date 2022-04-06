@@ -59,10 +59,11 @@ export default function Index() {
 
   return (
     <>
-      <h2 className="font-semibold text-xl">
+      <h2 className="font-medium text-xl">
         ✨ Get started with Clarity:{' '}
-        <Link to="/01-getting-started" className="font-extrabold">
-          Write your First Smart Contract on Stacks
+        <Link to="/01-voting-clarity-smart-contract/01-getting-started">
+          Write your First <span className="font-bold">Smart Contract</span> on
+          Stacks
         </Link>
       </h2>
 
