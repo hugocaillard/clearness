@@ -22,4 +22,10 @@ posts:
     publicationDate: 05/04/2022
     lastEditDate: 05/04/2022
     wip: false
+  04-04-improve-web-app:
+    title: Finalize the Web App
+    description: Write some more Clarity and use unvote and revote public functions
+    publicationDate: 08/04/2022
+    lastEditDate: 08/04/2022
+    wip: true
 ---

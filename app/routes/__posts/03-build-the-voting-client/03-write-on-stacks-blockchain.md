@@ -60,7 +60,7 @@ As you can see, `makeContractCallToken` is quite similar to `callReadOnlyFunctio
 
 We will now go back to the `useColorVote` store and make use of this new function. The basic implementation will be super simple. I'll also provide a more complete one with better typing.
 
-To handle the sender's vote values, we'll add a `votes` [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) to store the value of each color. Maps are simple key-value stores and the key can be anything. In our case, it will be the IDs of the vote options (which are BigInts).
+To handle the sender's vote values, we'll add a `vote` [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) to store the value of each color. Maps are simple key-value stores and the key can be anything. In our case, it will be the IDs of the vote options (which are BigInts).
 
 #### ./src/hooks/useColorVote.ts
 
@@ -71,11 +71,11 @@ const ids = [0n, 1n, 2n, 3n] as const
 const getInitialVote = () => new Map(ids.map((id) => [id, undefined]))
 
 export const useColorVote = create<ColorStore>((set, get) => ({
-  votes: getInitialVote(),
+  vote: getInitialVote(),
   // ...
   async sendVote() {
-    const { votes } = get()
-    const senderVote = ids.map((id) => votes.get(id))
+    const { vote } = get()
+    const senderVote = ids.map((id) => vote.get(id))
 
     // the array of numbers is converted into an array of clarity values
     await callContract('vote', senderVote.map(uintCV))
@@ -89,7 +89,7 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 <details>
 <summary>TypeScript and safer version</summary>
 
-The big difference here is the `isVoteValid` method and the strict typing of a valid vote.
+The big difference here is the `isValueValid` method and the strict typing of a valid vote value.
 
 #### ./src/hooks/useColorVote.ts
 
@@ -99,12 +99,12 @@ import { cvToTrueValue, uintCV } from 'micro-stacks/clarity'
 import { callContract, readOnlyRequest } from '../data/stacks'
 // ...
 
-type ValidVote = 0 | 1 | 2 | 3 | 4 | 5
-type Vote = undefined | ValidVote
+type ValidValue = 0 | 1 | 2 | 3 | 4 | 5
+type Vote = undefined | ValidValue
 
 interface ColorStore {
   colors: Color[]
-  votes: Map<BigInt, Vote>
+  vote: Map<BigInt, Vote>
   updateVote: (id: bigint, vote: number) => void
   fetchColors: () => Promise<void>
   sendVote: () => Promise<void>
@@ -113,25 +113,24 @@ interface ColorStore {
 const ids = [0n, 1n, 2n, 3n] as const
 const getInitialVote = () => new Map(ids.map((id) => [id, undefined]))
 
-function isVoteValid(vote: number | undefined): vote is ValidVote {
-  if (vote === undefined || isNaN(vote)) return false
-  return vote >= 0 && vote <= 5
+function isValueValid(value: unknown): value is ValidValue {
+  if (value === undefined || isNaN(Number(value))) return false
+  return Number(value) >= 0 && Number(value) <= 5
 }
 
 export const useColorVote = create<ColorStore>((set, get) => ({
   // ...
-  votes: getInitialVote(),
+  vote: getInitialVote(),
 
   async sendVote() {
-    const { votes } = get()
-    const senderVote = ids.map((id) => votes.get(id))
-    if (!senderVote.every(isVoteValid)) return
+    const { vote } = get()
+    const senderVote = ids.map((id) => vote.get(id))
+    if (!senderVote.every(isValueValid)) return
 
     await callContract('vote', senderVote.map(uintCV))
   },
 }))
 ```
-
 </details>
 
 One last method is needed in this store to update the vote values. I named it `updateVote`, it takes two arguments, the color ID and the value of the vote.
@@ -142,16 +141,16 @@ The method makes sure that the value is between 0 and 5 and then updates the vot
 ```ts
 export const useColorVote = create<ColorStore>((set, get) => ({
   // ...
-  updateVote(id, value) {
-    const vote = value > 5 ? 5 : value < 0 ? 0 : value
+  updateVote(id, inputValue) {
+    const value = inputValue > 5 ? 5 : inputValue < 0 ? 0 : inputValue
 
     // Map.protype.set returns
-    set((state) => ({ votes: state.votes.set(id, vote) }))
+    set((state) => ({ vote: state.vote.set(id, value) }))
   },
 }))
 ```
 
-> :point_right: In the TS version you also need to call `isVoteValid` function to ensure type safety (or use `as Vote`).
+> :point_right: In the TS version you also need to call `isValueValid` function to ensure type safety (or use `as Vote`).
 
 At this stage, you can check the [`useColorVote.ts`](https://github.com/hugocaillard/color-webapp-tuto/blob/step-3/src/hooks/useColorVote.ts) file on the repo if you want to see the `sendVote` and `updateVote`.
 
@@ -167,7 +166,7 @@ Open `Vote.tsx` and import the `VoteInput` in it as well as the `Button` compone
 // <imports>
 
 export const Vote = () => {
-  const { colors, votes, updateVote, sendVote } = useColorVote()
+  const { colors, vote, updateVote, sendVote } = useColorVote()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -182,7 +181,7 @@ export const Vote = () => {
             <Circle hex={c.value} />
             <VoteInput
               id={c.id.toString()}
-              value={votes.get(c.id)}
+              value={vote.get(c.id)}
               onInput={(e) => updateVote(c.id, e.currentTarget.valueAsNumber)}
             />
           </div>
@@ -217,8 +216,8 @@ export const useColorVote = create((set, get) => ({
   // ...
 
   async sendVote() {
-    const { votes } = get()
-    const senderVote = ids.map((id) => votes.get(id))
+    const { vote } = get()
+    const senderVote = ids.map((id) => vote.get(id))
 
     const txId = await callContract('vote', senderVote.map(uintCV))
 
@@ -258,6 +257,7 @@ import { callContract, network, readOnlyRequest } from '../data/stacks'
 type VoteTx = ContractCallTransaction | MempoolContractCallTransaction
 
 interface ColorStore {
+  // ...
   txId: string | null
   lastTx: VoteTx | null
   fetchLastTx: () => Promise<void>
@@ -268,9 +268,9 @@ export const useColorVote = create<ColorStore>((set, get) => ({
   lastTx: null,
   // ...
   async sendVote() {
-    const { votes } = get()
-    const senderVote = ids.map((id) => votes.get(id))
-    if (!senderVote.every(isVoteValid)) return
+    const { vote } = get()
+    const senderVote = ids.map((id) => vote.get(id))
+    if (!senderVote.every(isValueValid)) return
 
     const txId = await callContract('vote', senderVote.map(uintCV))
     localStorage.setItem('txId', txId)
@@ -298,43 +298,38 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 ```
 </details>
 
-Some useful data can be retrieved in the transactions (or "tx"). Especially the status and the arguments. In the `Vote.tsx` page, `fetchLastTx` will be called inside `useEffect`. We can then add some JS to display these data.
+Some useful data can be retrieved in the transactions (or "tx"). Especially the status and the arguments.  
+Create a file `LastVote.tsx` in `componenents`. We'll call `fetchLastTx` inside a `useEffect` to retrieve the transaction and some relevant informations. You can add this components at this end of the `Vote.tsx` page.
 
 
 ```ts
-export const Vote = () => {
-  const {
-    txId,
-    lastTx,
-    fetchLastTx,
-  } = useColorVote()
+import { useEffect } from 'preact/hooks'
 
+import { useColorVote } from '../hooks/useColorVote'
+import { H2 } from './UI/Typography'
+
+export function LastVote() {
+  const { txId, lastTx, fetchLastTx } = useColorVote()
   useEffect(() => {
-    if (txId) fetchLastTx()
+    fetchLastTx()
   }, [txId])
 
-  return (
-    <>
-      ...
-      {lastTx ? (
-        <div>
-          <H2>Previous vote</H2>
-          <p>
-            <b>Status</b>:{' '}
-            <span className="capitalize">{lastTx.tx_status}</span>
-          </p>
-          <ul className="flex gap-3">
-            {lastTx.contract_call.function_args?.map((v) => (
-              <li>
-                <span className="font-bold capitalize">{v.name}</span>:{' '}
-                {v.repr.replace('u', '')}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
-    </>
-  )
+  return lastTx ? (
+    <div>
+      <H2>Previous vote</H2>
+      <p>
+        <b>Status</b>: <span className="capitalize">{lastTx.tx_status}</span>
+      </p>
+      <ul className="flex gap-3">
+        {lastTx.contract_call.function_args?.map((v) => (
+          <li>
+            <span className="font-bold capitalize">{v.name}</span>:{' '}
+            {v.repr.replace('u', '')}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : null
 }
 ```
 
