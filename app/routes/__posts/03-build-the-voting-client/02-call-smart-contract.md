@@ -60,7 +60,7 @@ Let's write a function called `readOnlyRequest` that will allow us to call read-
 #### ./src/data/stacks.ts
 ```ts
 // add useAuth import
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../stores/useAuth'
 // ...
 
 export async function readOnlyRequest(name, args = []) {
@@ -92,7 +92,7 @@ import { StacksMocknet } from 'micro-stacks/network'
 import { callReadOnlyFunction } from 'micro-stacks/transactions'
 import { ClarityValue } from 'micro-stacks/clarity'
 
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../stores/useAuth'
 
 const network = new StacksMocknet({
   url: 'http://localhost:3999',
@@ -172,7 +172,7 @@ As you can see, the "rawColors" object would be painful to use later in our code
 
 Here is the store for ColorVote. Again, this is a pretty simple implementation, see below for a more complete one. This store only fetches colors but it will quickly have more method to cast a vote, cancel, or edit it.
 
-#### ./src/hooks/useColorVote.ts
+#### ./src/storesuseColorVote.ts
 ```ts
 import create from 'zustand'
 import { cvToTrueValue } from 'micro-stacks/clarity'
@@ -239,7 +239,7 @@ As often, there are multiple ways to achieve it, here is one. We'll modify `App.
 ```ts
 // add imports
 import { useEffect } from 'preact/hooks'
-import { useColorVote } from './hooks/useColorVote'
+import { useColorVote } from './stores/useColorVote'
 //...
 
 export function App() {
@@ -261,7 +261,7 @@ We'll use SVGs to display the colors. I made a simple [Circle](https://github.co
 ```tsx
 // slightly simplified version
 import { Circle } from '../components/UI/svg/Circle'
-import { useColorVote } from '../hooks/useColorVote'
+import { useColorVote } from '../stores/useColorVote'
 
 export const Vote = () => {
   const { colors } = useColorVote()

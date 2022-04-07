@@ -71,7 +71,7 @@ import { authenticate } from 'micro-stacks/connect'
 Since this `session` object will be much needed, it will be stored in a Zustand store.  
 Our store will look like that (see below for the TS version):
 
-#### ./src/hooks/useAuth.ts
+#### ./src/stores/useAuth.ts
 ```ts
 import { authenticate } from 'micro-stacks/connect'
 import create from 'zustand'
@@ -92,7 +92,7 @@ export const useAuth = create((set) => ({
 <details>
 <summary>Here is a slightly better version with **TypeScript** and error handling</summary>
 
-#### ./src/hooks/useAuth.ts
+#### ./src/stores/useAuth.ts
 ```ts
 import { StacksSessionState, authenticate } from 'micro-stacks/connect'
 import create from 'zustand'
@@ -128,7 +128,7 @@ This store will be used in the [Header component](https://github.com/hugocaillar
 #### ./src/components/Header.tsx
 ```ts
 // imports...
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../stores/useAuth'
 
 export const Header = () => {
   const { connect, session } = useAuth()
@@ -146,8 +146,8 @@ export const Header = () => {
 ```
 
 That is all for now. Please check the [pull request associated with this article](https://github.com/hugocaillard/color-webapp-tuto/pull/1) to see two other implemented features:
-- Retrieve the [session in the local storage](https://github.com/hugocaillard/color-webapp-tuto/blob/6a9787acc893813d8bb74ecf51aa3e174d5dfc65/src/hooks/useAuth.ts#L15-L25). Indeed micro-stacks stores it for us :muscle:
-- Add a [disconnect function](https://github.com/hugocaillard/color-webapp-tuto/blob/6a9787acc893813d8bb74ecf51aa3e174d5dfc65/src/hooks/useAuth.ts#L30-L33) that clears the session.
+- Retrieve the [session in the local storage](https://github.com/hugocaillard/color-webapp-tuto/blob/227b2019b6f10184696b6d0af6b3ec7f22596dde/src/stores/useAuth.ts#L15-L25). Indeed micro-stacks stores it for us :muscle:
+- Add a [disconnect function](https://github.com/hugocaillard/color-webapp-tuto/blob/227b2019b6f10184696b6d0af6b3ec7f22596dde/src/stores/useAuth.ts#L30-L33) that clears the session.
 
 ## Conclusion
 
