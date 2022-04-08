@@ -1,7 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
-title: Clarity Annexes
+title: Clarity annexes
 description: Stacks / Clarity ecosystem related articles
 posts:
   01-setting-up-env:

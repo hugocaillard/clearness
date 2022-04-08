@@ -4,7 +4,7 @@ const base = 'https://www.clearness.dev'
 
 const strip = (path: string[]) => path.map((p) => p.replace(/ |\//g, ''))
 
-const imageSuffix = '29032022'
+const imageSuffix = '08042022'
 
 export const getCanonical = (path: string[] = []) =>
   path.length === 0 ? base : `${base}/${strip(path).join('/').toLowerCase()}`

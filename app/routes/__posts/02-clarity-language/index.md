@@ -1,7 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
-title: Clarity Language
+title: Clarity language
 description: Standalone articles focusing on specific aspects of the Clarity language
 posts:
   01-iterate-on-lists:
