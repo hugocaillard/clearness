@@ -1,7 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
-title: The voting web application
+title: Build a web3 application on Stacks
 description: Develop a Web3 Application to interact with our Voting Smart Contract from the browser
 posts:
   01-setup-web3-application:
