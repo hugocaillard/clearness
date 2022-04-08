@@ -62,7 +62,7 @@ We will now go back to the `useColorVote` store and make use of this new functio
 
 To handle the sender's vote values, we'll add a `vote` [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) to store the value of each color. Maps are simple key-value stores and the key can be anything. In our case, it will be the IDs of the vote options (which are BigInts).
 
-#### ./src/storesuseColorVote.ts
+#### ./src/stores/useColorVote.ts
 
 ```ts
 import { cvToTrueValue, uintCV } from 'micro-stacks/clarity'
@@ -91,8 +91,7 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 
 The big difference here is the `isValueValid` method and the strict typing of a valid vote value.
 
-#### ./src/storesuseColorVote.ts
-
+#### ./src/stores/useColorVote.ts
 ```ts
 import { cvToTrueValue, uintCV } from 'micro-stacks/clarity'
 
@@ -136,7 +135,7 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 One last method is needed in this store to update the vote values. I named it `updateVote`, it takes two arguments, the color ID and the value of the vote.
 The method makes sure that the value is between 0 and 5 and then updates the votes map.
 
-#### ./src/storesuseColorVote.ts
+#### ./src/stores/useColorVote.ts
 
 ```ts
 export const useColorVote = create<ColorStore>((set, get) => ({
@@ -152,7 +151,7 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 
 > :point_right: In the TS version you also need to call `isValueValid` function to ensure type safety (or use `as Vote`).
 
-At this stage, you can check the [`useColorVote.ts`](https://github.com/hugocaillard/color-webapp-tuto/blob/step-3/src/storesuseColorVote.ts) file on the repo if you want to see the `sendVote` and `updateVote`.
+At this stage, you can check the [`useColorVote.ts`](https://github.com/hugocaillard/color-webapp-tuto/blob/step-3/src/stores/useColorVote.ts) file on the repo if you want to see the `sendVote` and `updateVote`.
 
 The vote store is now complete and ready to write data on the blockchain.
 
@@ -162,7 +161,7 @@ For completeness, let's take some time to see how to create the voting form. To 
 Open `Vote.tsx` and import the `VoteInput` in it as well as the `Button` component.
 
 #### ./src/pages/Vote.tsx
-```ts
+```tsx
 // <imports>
 
 export const Vote = () => {
@@ -202,7 +201,7 @@ If a person casts a vote and immediately refreshes the page, they won't see that
 
 Each transaction has a unique ID, which is returned by the `contractCall` function. We will update the `sendVote` function to save the `txId` in the local storage to retrieve it on page refresh.
 
-#### ./src/pages/Vote.tsx
+#### ./src/stores/useColorVote.ts
 ```ts
 import { fetchTransaction } from 'micro-stacks/api'
 // you'll need to export `network` from stacks.ts and import here
@@ -243,7 +242,7 @@ export const useColorVote = create((set, get) => ({
 
 You'll need to install the `@stacks/stacks-blockchain-api-types` package because `micro-stacks` does not expose some types at the moment.
 
-#### ./src/pages/Vote.tsx
+#### ./src/stores/useColorVote.ts
 ```ts
 import { fetchTransaction } from 'micro-stacks/api'
 import type {
@@ -301,8 +300,8 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 Some useful data can be retrieved in the transactions (or "tx"). Especially the status and the arguments.  
 Create a file `LastVote.tsx` in `componenents`. We'll call `fetchLastTx` inside a `useEffect` to retrieve the transaction and some relevant informations. You can add this components at this end of the `Vote.tsx` page.
 
-#### ./src/components/LastVot.tsx
-```ts
+#### ./src/components/LastVote.tsx
+```tsx
 import { useEffect } from 'preact/hooks'
 
 import { useColorVote } from '../stores/useColorVote'

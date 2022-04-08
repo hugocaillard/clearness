@@ -126,7 +126,7 @@ export const useAuth = create<AuthStore>((set) => ({
 This store will be used in the [Header component](https://github.com/hugocaillard/color-webapp-tuto/blob/step-0/src/components/Header.tsx) to open the popup when the button is clicked. Import `useAuth`, it's a hook that exposes a `connect` method that is passed to `onClick`.
 
 #### ./src/components/Header.tsx
-```ts
+```tsx
 // imports...
 import { useAuth } from '../stores/useAuth'
 

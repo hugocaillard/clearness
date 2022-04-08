@@ -172,7 +172,7 @@ As you can see, the "rawColors" object would be painful to use later in our code
 
 Here is the store for ColorVote. Again, this is a pretty simple implementation, see below for a more complete one. This store only fetches colors but it will quickly have more method to cast a vote, cancel, or edit it.
 
-#### ./src/storesuseColorVote.ts
+#### ./src/stores/useColorVote.ts
 ```ts
 import create from 'zustand'
 import { cvToTrueValue } from 'micro-stacks/clarity'
@@ -194,6 +194,7 @@ export const useColorVote = create((set, get) => ({
 <details>
 <summary>Improved version with error handling a types safety</summary>
 
+#### ./src/stores/useColorVote.tsx
 ```ts
 import create from 'zustand'
 import { cvToTrueValue } from 'micro-stacks/clarity'
@@ -236,7 +237,7 @@ This store is now ready to be called. We want to fetch the colors early in our a
 As often, there are multiple ways to achieve it, here is one. We'll modify `App.tsx` to initiate the fetch.
 
 #### ./src/App.tsx
-```ts
+```tsx
 // add imports
 import { useEffect } from 'preact/hooks'
 import { useColorVote } from './stores/useColorVote'
