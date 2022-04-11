@@ -22,9 +22,11 @@ export function Header({ width }: HeaderProps) {
   return (
     <header className="sticky mt-10 mb-8 border-solid border-gray-400 dark:border-gray-600">
       <div className={`${width} flex justify-between items-center`}>
-        <H1>
-          <Link to="/">Ӿ Clearness</Link>
-        </H1>
+        <span className="text-5xl !font-bold mb-2">
+          <Link to="/" className="flex gap-2">
+            Ӿ <H1>Clearness</H1>
+          </Link>
+        </span>
 
         <div>
           <input

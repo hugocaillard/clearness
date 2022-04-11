@@ -17,7 +17,7 @@ posts:
     lastEditDate: 19/03/2022
     wip: false
   03-coding-style:
-    title: Coding Style
+    title: Coding style
     description: Some rules applied the Clarity code of the snippets
     publicationDate: 15/02/2022
     lastEditDate: 11/03/2022

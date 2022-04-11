@@ -22,7 +22,7 @@ test.describe('home page', async () => {
 
   test('has the right H1', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('h1>a')).toHaveText('Ӿ Clearness')
+    await expect(page.locator('h1')).toHaveText('Clearness')
   })
 })
 
@@ -33,7 +33,7 @@ test.describe('category page', () => {
     await page.goto(path)
 
     await expect(page.locator(sel.title)).toHaveText(
-      'Clearness - Learn Clarity - Clarity Annexes',
+      'Clearness - Learn Clarity - Clarity annexes',
     )
     await expect(page.locator(sel.canonical)).toHaveAttribute('href', url)
     await expect(page.locator(sel.ogUrl)).toHaveAttribute('content', url)
@@ -48,7 +48,7 @@ test.describe('category page', () => {
   test('has the right h2 title', async ({ page }) => {
     await page.goto(path)
 
-    await expect(page.locator('h2')).toHaveText('Clarity Annexes')
+    await expect(page.locator('h2')).toHaveText('Clarity annexes')
   })
 })
 
@@ -60,7 +60,7 @@ test.describe('article page', () => {
     await page.goto(path)
 
     await expect(page.locator(sel.title)).toHaveText(
-      'Clearness - Learn Clarity - Coding Style',
+      'Clearness - Learn Clarity - Coding style',
     )
     await expect(page.locator(sel.canonical)).toHaveAttribute('href', url)
     await expect(page.locator(sel.ogUrl)).toHaveAttribute('content', url)
@@ -75,7 +75,7 @@ test.describe('article page', () => {
   test('has the right h2 titles', async ({ page }) => {
     await page.goto(path)
 
-    await expect(page.locator('h2').first()).toHaveText('Clarity Annexes')
+    await expect(page.locator('h2').first()).toHaveText('Clarity annexes')
     await expect(page.locator('h2').nth(1)).toHaveText('Coding style')
   })
 })
