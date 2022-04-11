@@ -39,10 +39,6 @@ function clarity(Prism) {
         lookbehind: true,
       },
       {
-        pattern: RegExp(`${par}(?:is-eq|is-some|is-none|is-ok|is-er)${space}`),
-        lookbehind: true,
-      },
-      {
         pattern: RegExp(
           `${par}(?:var-set|map-set|map-delete|map-insert|ft-transfer\\?|nft-transfer\\?|nft-mint\\?|ft-mint\\?|nft-get-owner\\?|ft-get-balance\\?|contract-call\\?)${space}`,
         ),
