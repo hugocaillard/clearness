@@ -15,6 +15,7 @@ Source code and articles for [clearness.dev/](https://www.clearness.dev/)
   - [ ] "from 0 to clarity" - how to get started with no coding experience
   - [ ] "from JS to clarity" - transfer JS/TS knowledge to clarity
   - [ ] "define functions" - read-only, public, privat - arguments and return/resonse types
+  - [ ] "deploy on mainnet and testnet"
 
 - series
   - [x] first series of articles "voting system"

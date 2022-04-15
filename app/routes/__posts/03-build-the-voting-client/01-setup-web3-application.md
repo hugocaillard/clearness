@@ -23,7 +23,7 @@ The purpose of this tuto is to focus on the **interactions between our app and t
 ### Use Stacks Wallet and the Devnet
 
 We will use the [Hiro Wallet](https://www.hiro.so/wallet#download).  
-It is recommended to set up a dedicated "development" session in my web browser with the Hiro Wallet and some developer tools. You want to keep your real wallet separated since we'll need to connect to a fake one now. Open the Voting smart contract project, find the file `settings/Devnet.toml`, you'll find here a list of Stack accounts. These fake accounts are used with clarinet test. We'll also use it to connect to the Devnet locally. You can run **`$ clarinet integrate`** to launch the Devnet, you'll need [Docker](https://www.docker.com/) to be running.
+It is recommended to set up a dedicated "development" session in your web browser with the Hiro Wallet and some developer tools. You want to keep your real wallet separated since we'll need to connect to a fake one now. Open the Voting smart contract project, find the file `settings/Devnet.toml`, you'll find here a list of Stack accounts. These fake accounts are used with clarinet test. We'll also use it to connect to the Devnet locally. You can run **`$ clarinet integrate`** to launch the Devnet, you'll need [Docker](https://www.docker.com/) to be running.
 
 > :point_right: The *Devnet* is a Stacks environment that runs on your computer.
 
