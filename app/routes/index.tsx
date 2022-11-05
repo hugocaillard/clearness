@@ -1,11 +1,5 @@
-import {
-  HeadersFunction,
-  LoaderFunction,
-  MetaFunction,
-  useLoaderData,
-  useLocation,
-  useOutletContext,
-} from 'remix'
+import { useLoaderData, useLocation, useOutletContext } from '@remix-run/react'
+import { HeadersFunction, LoaderFunction, MetaFunction } from '@remix-run/node'
 
 import DateString from '~/components/date-string'
 import Link from '~/components/link'

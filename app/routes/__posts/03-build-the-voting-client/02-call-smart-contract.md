@@ -1,6 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
+links:
 ---
 
 In the previous article, we worked on some mandatory steps to get started. The people visiting our web app are now able to authenticate with their Stacks Wallet. Once logged in, they will be able to call the functions exposed by our contract.

@@ -1,6 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
+links:
 ---
 
 To improve the readability of Clarity code (or any code), it's important to be consistent in the way it's written. It's necessary to have some good rules, but whatever the rules are, it's even more important to follow them.

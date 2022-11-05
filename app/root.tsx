@@ -1,8 +1,6 @@
 import {
   Links,
-  LinksFunction,
   LiveReload,
-  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
@@ -10,7 +8,8 @@ import {
   useLoaderData,
   useLocation,
   useMatches,
-} from 'remix'
+} from '@remix-run/react'
+import type { LinksFunction, LoaderFunction } from '@remix-run/node'
 import langParser from 'accept-language-parser'
 
 import tailwind from './tailwind.css'

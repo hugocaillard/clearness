@@ -1,6 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
+links:
 ---
 
 In the [previous tutorial](/01-voting-clarity-smart-contract), we learned to develop a simple Smart Contract for the Stacks blockchain. One question you may ask is how do people will interact with it? How will they call the "vote" function of the contract?  

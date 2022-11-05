@@ -1,6 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
+links:
 ---
 
 There will be fundamentally nothing new in this article. Take it as an exercise to practice and review what you previously learned.

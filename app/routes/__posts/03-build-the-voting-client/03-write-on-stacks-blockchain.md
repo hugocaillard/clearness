@@ -1,6 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
+links:
 ---
 
 At this stage, the web app can read data by calling read-only functions. The next step is to write data through public functions. In this article, we'll create the voting form and send the voters' choices to the contract `vote` function.

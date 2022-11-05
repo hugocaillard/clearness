@@ -1,4 +1,4 @@
-import { NavLink as RemixLink, NavLinkProps } from 'remix'
+import { NavLink as RemixLink, NavLinkProps } from '@remix-run/react'
 
 import { cleanClass } from './utils'
 

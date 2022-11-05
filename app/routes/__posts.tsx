@@ -1,12 +1,9 @@
-import {
-  Link,
+import { Link, Outlet, useLoaderData, useLocation } from '@remix-run/react'
+import type {
   LinksFunction,
   LoaderFunction,
   MetaFunction,
-  Outlet,
-  useLoaderData,
-  useLocation,
-} from 'remix'
+} from '@remix-run/node'
 import invariant from 'tiny-invariant'
 import prismThemeDark from 'prism-themes/themes/prism-coldark-dark.min.css'
 

@@ -1,6 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
+links:
 ---
 
 A lot of manual testing has been done in the previous article with the Clarinet Repl and `contract-call?`. On bigger projects, it can become painful to manually test all features. In a few minutes you will be able to implement unit tests with Clarinet.

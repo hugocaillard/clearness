@@ -1,6 +1,7 @@
 ---
 headers:
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=2592000
+links:
 ---
 
 At this stage, we have a working Smart Contract that only counts the number of "voters" and allows only one vote per address. In this article, we'll see how to implement the actual voting system.
